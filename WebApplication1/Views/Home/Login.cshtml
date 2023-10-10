@@ -1,14 +1,56 @@
 ﻿@{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Nøsted &";
 }
 <h1>@ViewData["Title"]</h1>
+<div class="undertitle">
+    <p>Serviceportal</p>
+</div>
+<div>
+    <form id ="form_login">
+        <p>Velkommen!</p>
+        <div class="form-group">
+            <label for="exampleUsername">Brukernavn</label>
+            <input type="text" class="form-control" id="exampleUsername" aria-describedby="usernameHelp" placeholder="Brukernavn">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Passord</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
+        </div>
+        <button type="submit" class="btn btn-primary">Fortsett</button>
+    </form>
+</div>
 
-<form>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+<style>.btn-primary {
+        margin-top: 10px;
+        background-color: rgba(244,141,1,255);
+        border-color: rgba(244,141,1,255);
+}
 
-    <input type="submit" value="Submit">
-</form>
+    .btn-primary:hover {
+            background-color: rgba(224,121,1,255);
+            border-color: rgba(224,121,1,255);
+    }
+
+    form {
+        border: 1px solid black; /* Legg til ønsket grensestil her */
+        border-radius: 2%;
+        background-image: linear-gradient(to bottom, lightgrey, lightblue);
+        padding: 30px;
+
+    }
+
+    h1 {
+        text-align: center;
+        color: rgba(113,133,143,255);
+    }
+
+    .undertitle {
+        text-align: center;
+        color: rgba(113,133,143,255);
+    }
+    
+    body{
+        background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
+    }
+</style>
