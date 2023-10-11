@@ -1,13 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Nøsted &";
+    ViewData["Title"] = "nøsted &";
 }
 <h1>@ViewData["Title"]</h1>
+
 <div class="undertitle">
     <p>Serviceportal</p>
 </div>
-<div>
+
+<div style="text-align: center;">
     <form id ="form_login">
-        <p>Velkommen!</p>
+        <p style ="font-weight: bold;">Velkommen!</p>
         <div class="form-group">
             <label for="exampleUsername">Brukernavn</label>
             <input type="text" class="form-control" id="exampleUsername" aria-describedby="usernameHelp" placeholder="Brukernavn">
@@ -21,7 +23,8 @@
 </div>
 
 
-<style>.btn-primary {
+<style>
+    .btn-primary {
         margin-top: 10px;
         background-color: rgba(244,141,1,255);
         border-color: rgba(244,141,1,255);
@@ -34,19 +37,24 @@
 
     form {
         border: 1px solid black; /* Legg til ønsket grensestil her */
-        border-radius: 2%;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 3%;
         background-image: linear-gradient(to bottom, lightgrey, lightblue);
-        padding: 30px;
+        
 
     }
 
     h1 {
         text-align: center;
         color: rgba(113,133,143,255);
+        font-size: 4em;
+        font-family: Mensrea Light;
     }
 
     .undertitle {
         text-align: center;
+        margin-top: -10px;
         color: rgba(113,133,143,255);
     }
     
