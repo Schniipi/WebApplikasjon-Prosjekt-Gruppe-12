@@ -17,12 +17,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult Brukere()
         {
             return View();
         }
-
         public IActionResult Login()
         {
             return View();
