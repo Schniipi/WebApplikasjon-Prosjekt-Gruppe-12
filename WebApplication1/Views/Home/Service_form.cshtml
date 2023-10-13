@@ -1,6 +1,129 @@
 ﻿@{
     ViewData["Title"] = "Service Form";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    body{
+        background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
+        background-size: cover;
+    }
+
+    .ramme {
+        margin-top: 60px;
+        margin-left:auto;
+        border: 1px solid black; /* Legg til ønsket grensestil her */
+        margin-right: 550px;
+        padding: 20px;
+        background-color: rgba(16,24,32,255);
+        
+    }
+    form {
+        border: 1px solid black; /* Legg til ønsket grensestil her */
+        padding: 20px;
+        background-color: white;
+    }
+
+    
+
+    .undertittel {
+        text-align: center;
+        color: rgba(244,141,1,255);
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-dark {
+        background-color: rgba(16,24,32,255);
+        margin-top: 10px;
+        color: rgba(244,141,1,255);
+        border-color: rgba(244,141,1,255);
+    }
+
+    .btn-dark:hover {
+            background-color: rgba(224,121,1,255);
+            border-color: rgba(224,121,1,255);
+            color: rgba(16,24,32,255);
+
+    }
+
+    .save-buttons{
+        margin-left:200px;
+    }
+</style>
+<div class="ramme">
+   
+    <p class="undertittel">Service Skjema</p>
+    <table class="table table-striped bg-white">
+        <thead>
+            <tr>
+                <th scope="col">Avdeling</th>
+                <th scope="col">Sjekkpunkter</th>
+                <th scope="col">Ok</th>
+                <th scope="col">Bør skiftes</th>
+                <th scope="col">Defekt</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk clutch lammeler for slitasje</td>
+            <td><input type="radio" name="status-1-1" value="Ok"></td>
+            <td><input type="radio" name="status-1-1" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-1" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk bremser. Bånd/Pal</td>
+            <td><input type="radio" name="status-1-2" value="Ok"></td>
+            <td><input type="radio" name="status-1-2" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-2" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk lager for trommel</td>
+            <td><input type="radio" name="status-1-3" value="Ok"></td>
+            <td><input type="radio" name="status-1-3" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-3" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk PTO og opplagring</td>
+            <td><input type="radio" name="status-1-4" value="Ok"></td>
+            <td><input type="radio" name="status-1-4" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-4" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk kjedestrammer</td>
+            <td><input type="radio" name="status-1-5" value="Ok"></td>
+            <td><input type="radio" name="status-1-5" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-5" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk wire</td>
+            <td><input type="radio" name="status-1-6" value="Ok"></td>
+            <td><input type="radio" name="status-1-6" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-6" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk pinion lager</td>
+            <td><input type="radio" name="status-1-7" value="Ok"></td>
+            <td><input type="radio" name="status-1-7" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-7" value="Defekt"></td>
+        </tr>
+        <tr>
+            <th scope="row">Mekanisk</th>
+            <td>Sjekk kile på kjedehjul</td>
+            <td><input type="radio" name="status-1-8" value="Ok"></td>
+            <td><input type="radio" name="status-1-8" value="Bør skiftes"></td>
+            <td><input type="radio" name="status-1-8" value="Defekt"></td>
+        </tr>
+    </table>
+</div>
+<div class="save-buttons">
+    <button type="button" class="btn btn-dark">Lagre og ferdiggjør senere</button>
+    <button type="button" class="btn btn-dark">Ferdiggjør ordre</button>
+</div>
+
+
