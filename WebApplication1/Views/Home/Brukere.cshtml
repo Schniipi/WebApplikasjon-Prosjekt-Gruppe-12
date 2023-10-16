@@ -1,0 +1,192 @@
+﻿@{
+    ViewData["Title"] = "Brukere";
+}
+<style>
+    /* Your existing styles... */
+
+    /* Style the "pressed" state of the button */
+    .mechanical-form:active,
+    .hydraulisk-form:active,
+    .electrical-form:active,
+    .lager-form:active,
+    .nyavd-form:active {
+        transform: scale(0.95); /* Scale down the button when pressed */
+    }
+
+    /* Additional styles for the button hover effect (optional) */
+    .mechanical-form:hover,
+    .hydraulisk-form:hover,
+    .electrical-form:hover,
+    .lager-form:hover,
+    .nyavd-form:hover {
+        transform: scale(1.05); /* Scale up the button on hover (optional) */
+    }
+</style>
+
+<style>
+    .avdelinger {
+        margin-left: -1500px;
+        margin-top: 50px;
+        position: relative;
+    }
+
+        .avdelinger p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+        }
+    
+
+    .mechanical-form {
+        border: 1px solid black;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        background-color: #FF6600;
+        position: relative;
+        z-index: 1;
+        margin-left: -250px;
+        margin-top: 50px;
+    }
+
+        .mechanical-form p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the text within the box */
+            z-index: 2;
+        }
+
+    .hydraulisk-form {
+        border: 1px solid black;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        background-color: #FF6600;
+        position: relative;
+        z-index: 1;
+        margin-left: -250px;
+        margin-top: 50px;
+    }
+
+        .hydraulisk-form p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the text within the box */
+            z-index: 2;
+        }
+
+    .lager-form {
+        border: 1px solid black;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        background-color: #FF6600;
+        position: relative;
+        z-index: 1;
+        margin-left: -250px;
+        margin-top: 50px;
+    }
+
+        .lager-form p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the text within the box */
+            z-index: 2;
+        }
+
+    .electrical-form {
+        border: 1px solid black;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        background-color: #FF6600;
+        position: relative;
+        z-index: 1;
+        margin-left: -250px;
+        margin-top: 50px;
+    }
+
+        .electrical-form p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the text within the box */
+            z-index: 2;
+        }
+
+    .nyavd-form {
+        border: 1px solid black;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        background-color: #FF6600;
+        position: relative;
+        z-index: 1;
+        margin-left: -250px;
+        margin-top: 50px;
+    }
+
+        .nyavd-form p {
+            font-weight: bold;
+            font-family: 'YourCustomFont', Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center the text within the box */
+            z-index: 2;
+        }
+</style>
+
+<div style="text-align: center;">
+    <form class="avdelinger" id="avdelinger">
+        <p>AVDELINGER</p>
+    </form>
+</div>
+
+<div style="text-align: center;">
+    <form class="mechanical-form" id="mechanical_form">
+        <p>MEKANISK</p>
+    </form>
+</div>
+
+<div style="text-align: center;">
+    <form class="hydraulisk-form" id="hydraulisk_form">
+        <p>HYDRAULISK</p>
+    </form>
+</div>
+
+<div style="text-align: center;">
+    <form class="electrical-form" id="electrical_form">
+        <p>ELEKTRISK</p>
+    </form>
+</div>
+
+<div style="text-align: center;">
+    <form class="lager-form" id="lager_form">
+        <p>LAGER & UTLEVERING</p>
+    </form>
+</div>
+
+<div style="text-align: center;">
+    <form class="nyavd-form" id="nyavd_form">
+        <p>+</p>
+    </form>
+</div>
+
+
