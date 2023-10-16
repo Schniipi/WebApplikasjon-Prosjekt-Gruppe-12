@@ -4,6 +4,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,6 +28,11 @@ namespace WebApplication1.Controllers
         }
 
        public IActionResult Service_form()
+        {
+            return View();
+        }
+
+        public IActionResult Hjemmeside()
         {
             return View();
         }
