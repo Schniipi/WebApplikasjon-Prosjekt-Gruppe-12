@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Kundehenvendelser</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Kontakt Oss</h1>
+    <form id="contactForm">
+      <label for="name">Navn:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">E-post:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Melding:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="button" onclick="submitForm()">Send</button>
+    </form>
+
+    <div id="response"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
