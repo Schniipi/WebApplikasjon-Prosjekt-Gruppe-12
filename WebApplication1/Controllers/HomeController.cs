@@ -4,6 +4,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,16 +14,22 @@ namespace WebApplication1.Controllers
             _logger = logger;
         }
 
+
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Gjennomført_Service()
         {
             return View();
         }
 
+        public IActionResult Brukere()
+        {
+            return View();
+        }
         public IActionResult Login()
         {
             return View();
@@ -33,7 +40,16 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult New_service()
+        public IActionResult New_service() 
+        {
+            return View();
+        }
+        public IActionResult Hjemmeside()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }
