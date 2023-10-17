@@ -40,6 +40,10 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public IActionResult New_service() 
+        {
+            return View();
+        }
         public IActionResult Hjemmeside()
         {
             return View();
