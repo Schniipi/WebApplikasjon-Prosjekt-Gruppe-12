@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!--container for alle bildene med tekst i midten-->
+<div class="images">
+    <img id="image" style="border-right: 1px solid;" src="https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/Heading-bla-002.jpg" />
+    <a href="Service_form">
+        <p id="textVisual" class="textVisual" style="left: 100px;">Kommende service</p>
+    </a>
+
+    <img id="image" style="border-right: 1px solid;" src="https://res.cloudinary.com/mhadaily/image/upload/w_820,f_auto,q_85/nosted/cmspro/20200225_104455_333596c667.jpg?_i=AA" />
+    <a href="https://sentry.io/answers/how-do-i-create-an-html-button-that-acts-like-a-link/">
+        <p id="textVisual" class="textVisual" style="left: 550px;">Pågående service</p>
+    </a>
+
+    <img id="image" src="https://res.cloudinary.com/mhadaily/image/upload/w_600,f_auto,q_85/nosted/cmspro/trygg_vei_3316481977.png?_i=AA" />
+    <a href="Gjennomført_Service">
+        <p id="textVisual" class="textVisual" style="left: 970px;">Gjennomført service</p>
+    </a>
+
+</div>
+
+
+
+<style>
+    body {
+        background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
+    }
+
+
+    .images {
+        margin-left: -5px;
+        position: relative;
+        max-width: 100%;
+        display: flex;
+    }
+
+        .images img {
+            width: 34%;
+            object-fit: cover;
+            border: 3px solid;
+
+        }
+
+    .textVisual {
+        /*teksten sin stil*/
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: lightcyan;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: black;
+        position: absolute;
+        display: flex;
+
+        /*teksten sine egenskaper*/
+        font-size: 3.5vmin;
+        top: 20%;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        margin: 0;
+    }
+</style>
+

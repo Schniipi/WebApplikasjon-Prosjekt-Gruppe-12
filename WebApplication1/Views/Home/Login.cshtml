@@ -1,26 +1,47 @@
 ﻿@{
     ViewData["Title"] = "nøsted &";
 }
+
 <h1>@ViewData["Title"]</h1>
 
 <div class="undertitle">
     <p>Serviceportal</p>
 </div>
 
-<div style="text-align: center;">
-    <form id ="form_login">
-        <p style ="font-weight: bold;">Velkommen!</p>
+<div style="text-align: center; margin-left: auto;">
+    <form id="form_login">
+        <p style="font-weight: bold;">Velkommen!</p>
         <div class="form-group">
             <label for="exampleUsername">Brukernavn</label>
-            <input type="text" class="form-control" id="exampleUsername" aria-describedby="usernameHelp" placeholder="Brukernavn">
+            <input type="text" class="form-control" id="userID" aria-describedby="usernameHelp" placeholder="Brukernavn">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Passord</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
+            <input type="password" class="form-control" id="passwordID" placeholder="Passord">
         </div>
-        <button type="submit" class="btn btn-primary">Fortsett</button>
+        <button type="button" class="btn btn-primary" onclick="logIn()">Fortsett</button>
     </form>
 </div>
+
+<div id="feilBrPsord" style="text-align: center; color: red;"></div>
+<div id="inlogget" style="right: 130px; top: 18px; position: absolute; color: black;">ikke logget inn</div>
+
+<script>
+    function logIn() {
+        var pass = document.getElementById("passwordID").value;
+        var usr = document.getElementById("userID").value;
+
+        if (usr === "Admin" & pass === "123") {
+            window.location = "Hjemmeside";
+        } else {
+            var errorMsg = document.getElementById("feilBrPsord").innerHTML = "Ugyldig brukernavn/passord";
+            var inlogget = document.getElementById("inlogget").innerHTML = usr;
+
+        }
+    }
+    
+
+</script>
 
 
 <style>
@@ -28,12 +49,12 @@
         margin-top: 10px;
         background-color: rgba(244,141,1,255);
         border-color: rgba(244,141,1,255);
-}
+    }
 
-    .btn-primary:hover {
+        .btn-primary:hover {
             background-color: rgba(224,121,1,255);
             border-color: rgba(224,121,1,255);
-    }
+        }
 
     form {
         border: 1px solid black; /* Legg til ønsket grensestil her */
@@ -41,8 +62,6 @@
         padding: 20px;
         border-radius: 3%;
         background-image: linear-gradient(to bottom, lightgrey, lightblue);
-        
-
     }
 
     h1 {
@@ -57,8 +76,8 @@
         margin-top: -10px;
         color: rgba(113,133,143,255);
     }
-    
-    body{
+
+    body {
         background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
     }
 </style>
