@@ -50,6 +50,7 @@
         margin-left:200px;
     }
 </style>
+
 <div class="ramme">
    
     <p class="undertittel">Service Skjema</p>
@@ -122,8 +123,25 @@
     </table>
 </div>
 <div class="save-buttons">
-    <button type="button" class="btn btn-dark">Lagre og ferdiggjør senere</button>
-    <button type="button" class="btn btn-dark">Ferdiggjør ordre</button>
+    <button type="submit" class="btn btn-dark">Lagre og ferdiggjør senere</button>
+    <button type="button" class="btn btn-dark" onclick="displayRadioValue()" >Ferdiggjør ordre</button>
 </div>
+    </form>
 
 
+<script>
+    function displayRadioValue() {
+        document.getElementById("result").innerHTML = "";
+        var ele = document.getElementsByTagName('input');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].type = "radio") {
+
+                if (ele[i].checked)
+                    document.getElementById("result").innerHTML
+                        += ele[i].name + " Value: "
+                        + ele[i].value + "<br>";
+            }
+        }
+    }
+
+</script>
