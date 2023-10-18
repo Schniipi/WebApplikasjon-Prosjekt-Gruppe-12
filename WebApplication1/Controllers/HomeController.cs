@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-       public IActionResult Service_form()
+       public IActionResult ServiceForm()
         {
             return View();
         }
