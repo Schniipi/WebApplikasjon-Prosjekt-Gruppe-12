@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult Gjennomført_Service()
+        public IActionResult GjennomfortService()
         {
             return View();
         }
@@ -35,11 +35,15 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-       public IActionResult Service_form()
+       public IActionResult ServiceForm()
         {
             return View();
         }
 
+        public IActionResult NewService() 
+        {
+            return View();
+        }
         public IActionResult Hjemmeside()
         {
             return View();
