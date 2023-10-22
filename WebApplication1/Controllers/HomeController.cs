@@ -30,6 +30,31 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public IActionResult MekaniskAvd()
+        {
+            return View();
+        }
+
+        public IActionResult HydrauliskAvd()
+        {
+            return View();
+        }
+        public IActionResult ElektriskAvd()
+        {
+            return View();
+        }
+
+        public IActionResult LagerAvd()
+        {
+            return View();
+        }
+
+        public IActionResult NyAvd()
+        {
+            return View();
+        }
+
         public IActionResult Login()
         {
             return View();
