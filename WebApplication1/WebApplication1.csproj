@@ -25,4 +25,32 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Home\GjennomfortService.cshtml.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+    <Compile Update="Models\FormDataMappe\ServiceModel.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+    <Compile Update="Repositories\IFormRepository.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Compile>
+    <Compile Update="Views\Home\Privacy.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="ServiceModel.cs" />
+    <Content Remove="brukerData\brukerDataForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\FormDataMappe\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Views\BrukerHandlinger\" />
+    <Folder Include="Views\wads\" />
+    <Folder Include="Views\ServiceFormMappe\" />
+  </ItemGroup>
 </Project>

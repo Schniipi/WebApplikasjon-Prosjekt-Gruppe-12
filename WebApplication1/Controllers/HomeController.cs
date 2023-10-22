@@ -30,12 +30,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
         public IActionResult MekaniskAvd()
         {
             return View();
         }
-
         public IActionResult HydrauliskAvd()
         {
             return View();
@@ -44,13 +42,12 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
         public IActionResult LagerAvd()
         {
             return View();
         }
 
-        public IActionResult NyAvd()
+        public IActionResult Login()
         {
             return View();
         }
