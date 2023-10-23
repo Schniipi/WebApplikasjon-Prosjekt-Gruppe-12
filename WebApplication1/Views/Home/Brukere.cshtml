@@ -21,60 +21,6 @@
 
 <style>
     .avdelinger {
-<<<<<<< Updated upstream
-   
-        margin-top: 50px;
-        position: relative;
-    }
-
-        .avdelinger p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-        }
-    
-
-    .mechanical-form {
-        border: 1px solid black;
-        width: 300px;
-        height: 80px;
-        border-radius: 20px;
-        background-color: #FF6600;
-        position: relative;
-        z-index: 1;
-    
-        margin-top: 50px;
-        text-align: center; /* Center the text horizontally */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-        .mechanical-form p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-            position: relative;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the text within the box */
-            z-index: 2;
-
-        }
-        .mechanical-form a {
-            text-decoration: none;
-            color: inherit;
-            font-family:inherit;
-            position: relative;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%);
-            z-index: 3;
-
-        }
-
-    .hydraulisk-form {
-=======
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -89,146 +35,11 @@
 
     .department-button {
         display: inline-block;
->>>>>>> Stashed changes
         border: 1px solid black;
         width: 300px;
         height: 80px;
         border-radius: 20px;
         background-color: #FF6600;
-<<<<<<< Updated upstream
-        position: relative;
-        z-index: 1;
-    
-        margin-top: 50px;
-    }
-
-        .hydraulisk-form p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the text within the box */
-            z-index: 2;
-        }
-
-    .lager-form {
-        border: 1px solid black;
-        width: 300px;
-        height: 80px;
-        border-radius: 20px;
-        background-color: #FF6600;
-        position: relative;
-        z-index: 1;
-        margin-top: 50px;
-    }
-
-        .lager-form p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the text within the box */
-            z-index: 2;
-        }
-
-    .electrical-form {
-        border: 1px solid black;
-        width: 300px;
-        height: 80px;
-        border-radius: 20px;
-        background-color: #FF6600;
-        position: relative;
-        z-index: 1;
-
-        margin-top: 50px;
-    }
-
-        .electrical-form p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the text within the box */
-            z-index: 2;
-        }
-
-    .nyavd-form {
-        border: 1px solid black;
-        width: 300px;
-        height: 80px;
-        border-radius: 20px;
-        background-color: #FF6600;
-        position: relative;
-        z-index: 1;
-  
-        margin-top: 50px;
-    }
-
-        .nyavd-form p {
-            font-weight: bold;
-            font-family: 'YourCustomFont', Arial, sans-serif;
-            font-size: 24px;
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Center the text within the box */
-            z-index: 2;
-        }
-
-    a {
-        text-decoration: none;
-        color: inherit; /* Inherit color from the parent element */
-        font-family: 'YourCustomFont', Arial, sans-serif; /* Optionally, set a custom font */
-    }
-
-</style>
-
-<div style="text-align: center;">
-    <form class="avdelinger" id="avdelinger">
-        <p>AVDELINGER</p>
-    </form>
-</div>
-
-<div style="text-align: center;">
-    <a class="mechanical-form" href="MekaniskAvd">
-        <form id="mechanical_form">
-            <p>MEKANISK</p>
-        </form>
-    </a>
-</div>
-
-<div style="text-align: center;">
-    <form class="hydraulisk-form" id="hydraulisk_form">
-        <p>HYDRAULISK</p>
-    </form>
-</div>
-
-<div style="text-align: center;">
-    <form class="electrical-form" id="electrical_form">
-        <p>ELEKTRISK</p>
-    </form>
-</div>
-
-<div style="text-align: center;">
-    <form class="lager-form" id="lager_form">
-        <p>LAGER & UTLEVERING</p>
-    </form>
-</div>
-
-<div style="text-align: center;">
-    <form class="nyavd-form" id="nyavd_form">
-        <p>+</p>
-    </form>
-</div>
-
-
-=======
         margin: 10px;
         margin-top: 10px;
         text-align: center;
@@ -250,16 +61,20 @@
         .department-button:active {
             transform: scale(0.95);
         }
+
 </style>
 
 <div class="avdelinger">
     <p>AVDELINGER</p>
+    </form>
 </div>
 
 <div style="text-align: center;">
     <a class="department-button" href="MekaniskAvd">
         <p>MEKANISK</p>
+        </form>
     </a>
+</div>
 
     <a class="department-button" href="HydrauliskAvd">
         <p>HYDRAULISK</p>
@@ -274,4 +89,4 @@
     </a>
 </div>
 
->>>>>>> Stashed changes
+
