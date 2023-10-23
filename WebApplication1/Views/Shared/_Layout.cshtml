@@ -12,7 +12,7 @@
 <body>
     <!--Navigeringsbaren sine visuelle elementer-->
     <header>
-        @if (!Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase))
+        @if (!(Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Equals("/Home/login", StringComparison.OrdinalIgnoreCase)))
         {
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark custom-navbar border-bottom box-shadow mb-3">
                 <div class="container-fluid">
@@ -24,16 +24,16 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Service_form">Service Form</a>
+                                <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Logg ut</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="PagaendeS">Pågående Service</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="NewService">New Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ServiceForm">Service Form</a>
                             </li>
                         </ul>
                     </div>
@@ -49,15 +49,14 @@
 
     <div id="hai" class="hide" style="font-size: 30px; color: black; background-color: orange;
     border: 2px solid; padding: 20px; padding-bottom: 50px;
-    left: 40%; top: 40%; position: absolute" onclick="window.location.href ='Login'">vil du logge ut?</div>
+    left: 40%; top: 40%; position: absolute" onclick="window.location.href ='/home/Login'">vil du logge ut?</div>
 
-    <script>function lagBox() {
+    <script>
+            function lagBox() {
+                var dog = document.getElementById("hai");
+            dog.classList.toggle("hide");
 
-        var dog = document.getElementById("hai");
-
-    dog.classList.toggle("hide");
-
-        console.log(dog);
+            console.log(dog);
 
         }</script>
 
