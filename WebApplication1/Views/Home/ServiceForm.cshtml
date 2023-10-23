@@ -1,4 +1,3 @@
-﻿
 @model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
 
 
@@ -17,6 +16,7 @@
 
 
 <form asp-action="Privacy" asp-controller="Controllers" method="post">
+
     <div class="ramme">
 
         <p class="undertittel">Service Skjema</p>
@@ -30,7 +30,9 @@
                     <th scope="col">Defekt</th>
                 </tr>
             </thead>
+
             <tr id="wasd">
+
                 <th scope="row">Mekanisk</th>
                 <td>Sjekk clutch lammeler for slitasje</td>
                 <td><input type="radio" name="status-1-1" value="Ok"></td>
@@ -91,11 +93,14 @@
     <div class="save-buttons">
         <button type="submit" class="btn btn-dark">Lagre og ferdiggjør senere</button>
         <button type="button" class="btn btn-dark" onclick="displayRadioValue()">Ferdiggjør ordre</button>
+
     </div>
 </form>
 
 
-<script>function displayRadioValue() {
+
+<script>
+    function displayRadioValue() {
         document.getElementById("result").innerHTML = "";
         var ele = document.getElementsByTagName('input');
         for (i = 0; i < ele.length; i++) {
@@ -107,6 +112,7 @@
                         + ele[i].value + "<br>";
             }
         }
+
 
     }
 
@@ -161,3 +167,4 @@
         margin-left: 200px;
     }
 </style>
+

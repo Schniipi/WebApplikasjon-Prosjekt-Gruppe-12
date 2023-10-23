@@ -26,10 +26,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult Brukere()
-        {
-            return View();
-        }
         public IActionResult Login()
         {
             return View();
@@ -51,6 +47,10 @@ namespace WebApplication1.Controllers
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        public IActionResult PagaendeS() {
             return View();
         }
 

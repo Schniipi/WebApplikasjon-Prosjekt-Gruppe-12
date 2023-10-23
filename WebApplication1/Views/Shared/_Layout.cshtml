@@ -22,10 +22,11 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Log ut</a>
+                            <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Logg ut</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Brukerhandlinger" asp-action="Brukere">Brukere</a>
@@ -33,7 +34,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Brukerhandlinger" asp-action="New_service">New Service</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -75,8 +75,9 @@
 
 </html>
 
-<style>
-    .hide {
-        display: none;
-    }
-</style>
+ <style>
+     .custom-navbar{
+        background-color: rgba(16,24,32,255);
+        position:relative;
+     }
+ </style>
