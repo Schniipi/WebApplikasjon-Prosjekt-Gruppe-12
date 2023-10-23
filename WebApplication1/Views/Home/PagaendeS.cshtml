@@ -99,7 +99,6 @@
                     <p class="tittel">SERVICE TITTEL</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
                     <h2 class="navn">Nøsted &</h2>
                     <p class="info">beskrivelse</p>
                 </div>
@@ -109,7 +108,6 @@
                     <p class="tittel">SERVICE TITTEL</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
                     <h2 class="navn">Privat Person</h2>
                     <p class="info">info</p>
                 </div>
@@ -119,10 +117,70 @@
                     <p class="tittel">SERVICE TITTEL</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
                     <h2 class="navn">ERIK NYGÅrD</h2>
                     <p class="info">test test etst test test test test etsetsetets </p>
                 </div>
             </div>
         </div>
     </div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+                    <style>
+    /* Add this style to hide the modal backdrop initially */
+    .modal-backdrop {
+        display: none !important;
+    }
+</style>
+
+<script>
+    var title, info;
+
+    $(document).ready(function() {
+        $('.kort').click(function() {
+            // Remove any existing modals
+            $('.modal').remove();
+
+            // Get the title and info from the clicked card
+            title = $(this).find('.navn').text();
+            info = $(this).find('.info').text();
+
+            // Create a modal
+            var modalContent = '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+            modalContent += '<div class="modal-dialog" role="document">';
+            modalContent += '<div class="modal-content">';
+            modalContent += '<div class="modal-header">';
+            modalContent += '<h5 class="modal-title" id="exampleModalLabel">' + title + '</h5>';
+            modalContent += '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">';
+            modalContent += '<span aria-hidden="true">&times;</span>';
+            modalContent += '</button>';
+            modalContent += '</div>';
+            modalContent += '<div class="modal-body">';
+            modalContent += '<p>' + info + '</p>';
+            modalContent += '</div>';
+            modalContent += '<div class="modal-footer">';
+            modalContent += '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+            modalContent += '<button type="button" class="btn btn-primary" onclick="ferdiggjorOrdre()">Fortsett til service skjema</button>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+
+            // Append the modal to the body
+            $('body').append(modalContent);
+
+            // Show the modal
+            $('#exampleModal').modal('show');
+        });
+    }); 
+
+    function ferdiggjorOrdre() {
+        var ServiceFormUrl = '@Url.Action("ServiceForm", "Home")';
+        ServiceFormUrl += '?title=' + encodeURIComponent(title);
+        ServiceFormUrl += '&info=' + encodeURIComponent(info);
+        window.location.href ='ServiceForm'
+    }
+</script>

@@ -12,32 +12,34 @@
 <body>
     <!--Navigeringsbaren sine visuelle elementer-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="hjemmeside">Nøsted &</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Logg ut</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Brukerhandlinger" asp-action="Brukere">Brukere</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Brukerhandlinger" asp-action="New_service">New Service</a>
-                        </li>
-                    </ul>
+        @if (!(Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Equals("/Home/login", StringComparison.OrdinalIgnoreCase)))
+        {
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark custom-navbar border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="hjemmeside">Nøsted &</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Logg ut</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="NewService">New Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ServiceForm">Service Form</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        }
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -47,15 +49,14 @@
 
     <div id="hai" class="hide" style="font-size: 30px; color: black; background-color: orange;
     border: 2px solid; padding: 20px; padding-bottom: 50px;
-    left: 40%; top: 40%; position: absolute" onclick="window.location.href ='Login'">vil du logge ut?</div>
+    left: 40%; top: 40%; position: absolute" onclick="window.location.href ='/home/Login'">vil du logge ut?</div>
 
-    <script>function lagBox() {
+    <script>
+            function lagBox() {
+                var dog = document.getElementById("hai");
+            dog.classList.toggle("hide");
 
-        var dog = document.getElementById("hai");
-
-    dog.classList.toggle("hide");
-
-        console.log(dog);
+            console.log(dog);
 
         }</script>
 
@@ -75,9 +76,15 @@
 
 </html>
 
- <style>
-     .custom-navbar{
+<style>
+    .hide {
+        display:none;
+    }
+
+    .custom-navbar {
         background-color: rgba(16,24,32,255);
-        position:relative;
-     }
+        position: relative;
+        z-index: 1000;
+        width:100%;
+    }
  </style>
