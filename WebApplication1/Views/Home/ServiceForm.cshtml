@@ -1,56 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Service Form";
-}
-
-<style>
-    body{
-        background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
-        background-size: cover;
-    }
-
-    .ramme {
-        margin-top: 60px;
-        margin-left:auto;
-        border: 1px solid black; /* Legg til ønsket grensestil her */
-        margin-right: 550px;
-        padding: 20px;
-        background-color: rgba(16,24,32,255);
-        
-    }
-    form {
-        border: 1px solid black; /* Legg til ønsket grensestil her */
-        padding: 20px;
-        background-color: white;
-    }
-
-    .undertittel {
-        text-align: center;
-        color: rgba(244,141,1,255);
-        font-weight: bold;
-        font-size: 25px;
-    }
-
-    .btn-dark {
-        background-color: rgba(16,24,32,255);
-        margin-top: 10px;
-        color: rgba(244,141,1,255);
-        border-color: rgba(244,141,1,255);
-    }
-
-    .btn-dark:hover {
-            background-color: rgba(224,121,1,255);
-            border-color: rgba(224,121,1,255);
-            color: rgba(16,24,32,255);
-
-    }
-
-    .save-buttons{
-        margin-left:200px;
-    }
-</style>
+@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
 
 
-<form action="submit" method="post" enctype="application/x-www-form-urlencoded">
+
+<!--enctype="application/x-www-form-urlencoded"-->
+<form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
+    <label asp-for="Navn"></label>
+    <br />
+    <input asp-for="Navn" type="text"/><br />
+    <label asp-for="TelefonNummer"></label>
+    <br />
+    <input asp-for="TelefonNummer" type="number" /><br />
+    <input type="submit" />
+</form>
+
+
+
+<form asp-action="Privacy" asp-controller="Controllers" method="post">
+
     <div class="ramme">
 
         <p class="undertittel">Service Skjema</p>
@@ -64,7 +30,9 @@
                     <th scope="col">Defekt</th>
                 </tr>
             </thead>
-            <tr>
+
+            <tr id="wasd">
+
                 <th scope="row">Mekanisk</th>
                 <td>Sjekk clutch lammeler for slitasje</td>
                 <td><input type="radio" name="status-1-1" value="Ok"></td>
@@ -124,9 +92,11 @@
     </div>
     <div class="save-buttons">
         <button type="submit" class="btn btn-dark">Lagre og ferdiggjør senere</button>
-        <button type="button" class="btn btn-dark" onclick="displayRadioValue()" >Ferdiggjør ordre</button>
+        <button type="button" class="btn btn-dark" onclick="displayRadioValue()">Ferdiggjør ordre</button>
+
     </div>
 </form>
+
 
 
 <script>
@@ -142,8 +112,59 @@
                         + ele[i].value + "<br>";
             }
         }
+
+
     }
 
+    function displayMVC() {
+        document.getElementById("hei").innerHTML = "";
 
-</script>
+    }</script>
+
+
+<style>
+    body {
+        background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
+        background-size: cover;
+    }
+
+    .ramme {
+        margin-top: 60px;
+        margin-left: auto;
+        border: 1px solid black; /* Legg til ønsket grensestil her */
+        margin-right: 550px;
+        padding: 20px;
+        background-color: rgba(16,24,32,255);
+    }
+
+    form {
+        border: 1px solid black; /* Legg til ønsket grensestil her */
+        padding: 20px;
+        background-color: white;
+    }
+
+    .undertittel {
+        text-align: center;
+        color: rgba(244,141,1,255);
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-dark {
+        background-color: rgba(16,24,32,255);
+        margin-top: 10px;
+        color: rgba(244,141,1,255);
+        border-color: rgba(244,141,1,255);
+    }
+
+        .btn-dark:hover {
+            background-color: rgba(224,121,1,255);
+            border-color: rgba(224,121,1,255);
+            color: rgba(16,24,32,255);
+        }
+
+    .save-buttons {
+        margin-left: 200px;
+    }
+</style>
 

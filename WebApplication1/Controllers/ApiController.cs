@@ -1,24 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models.FormDataMappe.ServiceModel;
 
-namespace WebApplication1.Controllers
-{
-    [Route("[controller]")]
+namespace WebApplication1.Controllers.ApiController
+
+{ 
     public class ApiController : Controller
     {
-        public IActionResult Index()
+
+
+        [HttpGet]
+        public IActionResult ServiceForm()
         {
-            return View();
+
+            var model = new FormData
+            {
+
+                Navn = "hei",
+                TelefonNummer = 97472745,
+            };
+
+            return View(model);
         }
 
-        public class PostServiceRequest {
-            public required string Status { get; set;}
-        }
+        
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
 
-[HttpPost]
-[Route("Service")]
-        public IActionResult PostService([FromBody] PostServiceRequest request) {
-            return Ok(request);
+        public IActionResult Save(FormData model)
+        {
+
+            return View("/Views/Home/GjennomfortService.cshtml", model);
         }
     }
-}
+ }
