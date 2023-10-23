@@ -22,10 +22,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Service_form">Service Form</a>
+                            <a class="nav-link" style="font-size: 20px; right: 20px; position: absolute;" onclick="lagBox()">Log ut</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -34,7 +31,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Brukere">Brukere</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="New_service">New Service</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NewService">New Service</a>
                         </li>
                     </ul>
                 </div>
@@ -47,6 +44,20 @@
         </main>
     </div>
 
+    <div id="hai" class="hide" style="font-size: 30px; color: black; background-color: orange;
+    border: 2px solid; padding: 20px; padding-bottom: 50px;
+    left: 40%; top: 40%; position: absolute" onclick="window.location.href ='Login'">vil du logge ut?</div>
+
+    <script>function lagBox() {
+
+        var dog = document.getElementById("hai");
+
+    dog.classList.toggle("hide");
+
+        console.log(dog);
+
+        }</script>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Nøsted & - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -56,5 +67,16 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+
 </body>
+
 </html>
+
+ <style>
+     .custom-navbar{
+        background-color: rgba(16,24,32,255);
+        position:relative;
+     }
+ </style>
