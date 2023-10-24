@@ -22,28 +22,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult Gjennomført_Service()
-        {
-            return View();
-        }
-
-        public IActionResult Brukere()
-        {
-            return View();
-        }
-        public IActionResult MekaniskAvd()
-        {
-            return View();
-        }
-        public IActionResult HydrauliskAvd()
-        {
-            return View();
-        }
-        public IActionResult ElektriskAvd()
-        {
-            return View();
-        }
-        public IActionResult LagerAvd()
+        public IActionResult GjennomfortService()
         {
             return View();
         }
@@ -53,17 +32,31 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-       public IActionResult Service_form()
+       public IActionResult ServiceForm()
         {
             return View();
         }
 
+        public IActionResult NewService() 
+        {
+            return View();
+        }
         public IActionResult Hjemmeside()
         {
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+       public IActionResult Service_form()
+        {
+            return View();
+        } 
+
+        public IActionResult PagaendeS() 
         {
             return View();
         }
