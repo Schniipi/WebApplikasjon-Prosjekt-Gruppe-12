@@ -58,6 +58,5 @@
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
     <Folder Include="Views\ServiceFormMappe\" />
-    <Folder Include="Views\BrukerHandlinger\" />
   </ItemGroup>
 </Project>

@@ -51,28 +51,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
        public IActionResult Service_form()
         {
             return View();
-        }
+        } 
 
-        public IActionResult Hjemmeside()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-        public IActionResult PagaendeS() {
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult PagaendeS() 
         {
             return View();
         }
