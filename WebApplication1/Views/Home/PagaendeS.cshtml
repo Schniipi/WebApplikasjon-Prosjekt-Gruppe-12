@@ -1,4 +1,6 @@
-﻿@{
+﻿@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
+
+@{
     ViewData["Title"] = "PagaendeS";
 }
 
@@ -117,7 +119,7 @@
                     <p class="tittel">SERVICE TITTEL</p>
                 </div>
                 <div class="kort-text">
-                    <h2 class="navn">ERIK NYGÅrD</h2>
+                    <h2 class="navn">@Model.Navn</h2>
                     <p class="info">test test etst test test test test etsetsetets </p>
                 </div>
             </div>
