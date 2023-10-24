@@ -4,6 +4,7 @@
 
 <!--enctype="application/x-www-form-urlencoded"-->
 <form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
+    @Html.AntiForgeryToken()
     <label asp-for="Navn"></label>
     <br />
     <input asp-for="Navn" type="text"/><br />
@@ -16,7 +17,7 @@
 
 
 <form asp-action="Privacy" asp-controller="Controllers" method="post">
-
+    @Html.AntiForgeryToken()
     <div class="ramme">
 
         <p class="undertittel">Service Skjema</p>

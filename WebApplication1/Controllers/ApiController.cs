@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models.Filters;
 using WebApplication1.Models.FormDataMappe.ServiceModel;
 
 namespace WebApplication1.Controllers.ApiController
 
-{ 
+{
+    [AddSecurityHeaders]
     public class ApiController : Controller
     {
 
