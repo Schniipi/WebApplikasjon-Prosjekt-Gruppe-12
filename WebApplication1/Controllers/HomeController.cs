@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication1.Models;
+using WebApplication1.Models.Filters;
 
 namespace WebApplication1.Controllers
 {
-
+    [AddSecurityHeaders]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -50,7 +51,13 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult PagaendeS() {
+       public IActionResult Service_form()
+        {
+            return View();
+        } 
+
+        public IActionResult PagaendeS() 
+        {
             return View();
         }
 

@@ -1,11 +1,13 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models.Filters;
 using WebApplication1.Models.FormDataMappe.ServiceModel;
 
 
 
 namespace WebApplication1.Controllers.DefaultVerdierController
 {
+    [AddSecurityHeaders]
     public class DefaultVerdierController : Controller
     {
 
