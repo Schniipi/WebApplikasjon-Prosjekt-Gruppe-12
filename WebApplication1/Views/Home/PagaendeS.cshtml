@@ -176,6 +176,6 @@
         var ServiceFormUrl = '@Url.Action("ServiceForm", "Home")';
         ServiceFormUrl += '?title=' + encodeURIComponent(title);
         ServiceFormUrl += '&info=' + encodeURIComponent(info);
-        window.location.href ='ServiceForm'
+        window.location.href = '@Url.Action("NewServiceDef", "DefaultVerdier")/'
     }
 </script>
