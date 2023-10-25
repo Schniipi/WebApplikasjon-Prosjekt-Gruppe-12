@@ -11,6 +11,12 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <Compile Remove="Views\ServiceFormMappe\**" />
+    <Content Remove="Views\ServiceFormMappe\**" />
+    <EmbeddedResource Remove="Views\ServiceFormMappe\**" />
+    <None Remove="Views\ServiceFormMappe\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
   </ItemGroup>
@@ -57,7 +63,5 @@
     <Folder Include="Models\FormDataMappe\" />
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
-    <Folder Include="Views\ServiceFormMappe\" />
-    <Folder Include="Views\BrukerHandlinger\" />
   </ItemGroup>
 </Project>
