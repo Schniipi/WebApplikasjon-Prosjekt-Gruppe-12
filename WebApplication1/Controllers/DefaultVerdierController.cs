@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
 
                 Navn = "default",
                 TelefonNummer = 97472745,
+                Kommentar = "default kommentar"
             };
 
             return View("/Views/Home/ServiceForm.cshtml", model);
@@ -32,6 +33,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
 
                 Navn = "default",
                 TelefonNummer = 97472745,
+                Kommentar = "default kommentar"
             };
 
             return View("/Views/Home/GjennomfortService.cshtml", model);
@@ -46,6 +48,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
 
                 Navn = "default",
                 TelefonNummer = 97472745,
+                Kommentar = "default kommentar"
             };
 
             return View("/Views/Home/PagaendeS.cshtml", model);
