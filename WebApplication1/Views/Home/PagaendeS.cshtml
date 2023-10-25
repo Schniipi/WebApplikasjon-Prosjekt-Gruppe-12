@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<style>
+<style> /* CSSen for kortene som dannes   */ 
     body {
         background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
         background-size: cover;
@@ -46,7 +46,7 @@
     .kort-tittel{
         grid-area:tittel;
         display:flex;
-        justify-content:center;
+        justify-content:center; 
         align-items:center;
     }
 
@@ -98,7 +98,7 @@
     .modal-backdrop {
         display: none !important;
     }
-</style>
+</style> <!-- Her lages kortene, nå er det bare manuelt lagt inn, men skal bli en @foreach { item i liste som blir hentet fra kommende service } -->
 
     <div class="kort-container">
         <div class="kort-wrapper">
@@ -132,8 +132,8 @@
         </div>
     </div>
 
-<script>
-    var title, info;
+<script> // her lages en modal, den skal sende dataen fra det spesifikke service kortet over til service skjemaet. 
+    var title, info; 
 
     $(document).ready(function() {
         $('.kort').click(function() {
