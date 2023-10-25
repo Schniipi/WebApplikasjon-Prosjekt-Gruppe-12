@@ -9,12 +9,9 @@ namespace WebApplication1.Models.FormDataMappe.ServiceModel
         [Required]
         public string Navn { get; set; }
         public int TelefonNummer { get; set; }
+        public string Kommentar { get; set; }
 
     }
 
-    public class DyrViewModel
-    {
-        public int Id { get; set; }
-        //public string Name { get; set; }
-    }
+
 }
