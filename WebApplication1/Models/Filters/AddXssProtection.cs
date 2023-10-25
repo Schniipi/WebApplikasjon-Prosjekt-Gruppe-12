@@ -14,7 +14,9 @@
 
             // Denne headeren spesifiserer en policy for å kontrollere hvilke ressurser som kan lastes av nettleseren,
             // og bidrar til å redusere potensielle XSS-angrep.
-            response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval';");
+            // default-src vil bli implementert på et senere tidspunkt ettersom gruppen fant ut denne forårsaket flere errorer...
+            // ...som gjorde at css styles og layout.cs innhold ikke ble vist for noen av gruppemedlemmene 
+            response.Headers.Add("Content-Security-Policy", /*"default-src*/ ",'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval';");
 
             // Denne headeren spesifiserer om en nettside kan vises i en iframe, noe som hjelper med å forhindre Clickjacking-angrep.
             response.Headers.Add("X-Frame-Options", "DENY");
