@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication1.Models;
+using WebApplication1.Models.Filters;
 
 namespace WebApplication1.Controllers
 {
-
+    [AddSecurityHeaders]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,26 +22,22 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult Gjennomført_Service()
+        public IActionResult GjennomfortService()
         {
             return View();
         }
 
-        public IActionResult Brukere()
-        {
-            return View();
-        }
         public IActionResult Login()
         {
             return View();
         }
 
-       public IActionResult Service_form()
+       public IActionResult ServiceForm()
         {
             return View();
         }
 
-        public IActionResult New_service() 
+        public IActionResult NewService() 
         {
             return View();
         }
@@ -50,6 +47,16 @@ namespace WebApplication1.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+       public IActionResult Service_form()
+        {
+            return View();
+        } 
+
+        public IActionResult PagaendeS() 
         {
             return View();
         }

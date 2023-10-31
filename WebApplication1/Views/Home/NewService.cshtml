@@ -1,0 +1,19 @@
+﻿@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
+@{
+    ViewData["Title"] = "Service Form";
+}
+
+<!--enctype="application/x-www-form-urlencoded"-->
+<form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
+    <label asp-for="Navn"></label>
+    <br />
+    <input asp-for="Navn" type="text" /><br />
+    <label asp-for="TelefonNummer"></label>
+    <br />
+    <input asp-for="TelefonNummer" type="number" /><br />
+    <label asp-for="Kommentar"></label>
+    <br />
+    <textarea asp-for="Kommentar" type="text"></textarea> <br />
+    <input type="submit" />
+</form>
+
