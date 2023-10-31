@@ -1,8 +1,14 @@
-﻿@{
+﻿@using WebApplication1.Controllers.ApiController;
 
-    ViewData["Title"] = "GjennomførtS";
+@{
+    @namespace WebApplication1.Controllers
+
+    <p>Navn til kunde: @Model.Navn</p>
+    <p>TelefonNummer: @Model.TelefonNummer</p>
+
+    <p>Data fra databasen skal bli vist her</p>
+    
+
+
 }
-
-
-<p>@ViewData["Title"] </p>
 

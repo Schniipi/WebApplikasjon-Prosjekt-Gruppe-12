@@ -1,24 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models.Filters;
+using WebApplication1.Models.FormDataMappe.ServiceModel;
 
-namespace WebApplication1.Controllers
+namespace WebApplication1.Controllers.ApiController
+
 {
-    [Route("[controller]")]
+    [AddSecurityHeaders]
     public class ApiController : Controller
     {
-        public IActionResult Index()
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Save(FormData model)
         {
-            return View();
-        }
 
-        public class PostServiceRequest {
-            public required string Status { get; set;}
-        }
-
-
-[HttpPost]
-[Route("Service")]
-        public IActionResult PostService([FromBody] PostServiceRequest request) {
-            return Ok(request);
+            return View("/Views/Home/ServiceForm.cshtml", model);
         }
     }
-}
+ }

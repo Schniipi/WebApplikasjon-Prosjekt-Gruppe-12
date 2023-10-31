@@ -1,10 +1,16 @@
-﻿@{
+﻿@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
+
+@{
     ViewData["Title"] = "PagaendeS";
 }
 
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<style>
+<style> /* CSSen for kortene som dannes   */ 
     body {
         background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
         background-size: cover;
@@ -42,7 +48,7 @@
     .kort-tittel{
         grid-area:tittel;
         display:flex;
-        justify-content:center;
+        justify-content:center; 
         align-items:center;
     }
 
@@ -90,39 +96,88 @@
         display: flex;
         justify-content: space-between;
     }
-</style>
 
+    .modal-backdrop {
+        display: none !important;
+    }
+</style> 
+
+<!-- Her lages kortene, nå er det bare manuelt lagt inn, men skal bli en foreach { item i liste som blir hentet fra kommende service } -->
     <div class="kort-container">
         <div class="kort-wrapper">
             <div class="kort">
                 <div class="kort-tittel">
-                    <p class="tittel">SERVICE TITTEL</p>
+                    <p class="tittel">SERVICE TITTEL1</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
                     <h2 class="navn">Nøsted &</h2>
                     <p class="info">beskrivelse</p>
                 </div>
             </div>
             <div class="kort">
                 <div class="kort-tittel">
-                    <p class="tittel">SERVICE TITTEL</p>
+                    <p class="tittel">SERVICE TITTEL2</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
                     <h2 class="navn">Privat Person</h2>
                     <p class="info">info</p>
                 </div>
             </div>
             <div class="kort">
                 <div class="kort-tittel">
-                    <p class="tittel">SERVICE TITTEL</p>
+                    <p class="tittel">SERVICE TITTEL3</p>
                 </div>
                 <div class="kort-text">
-                    <!---<span class="student">UiA BACIT Student</span> -->
-                    <h2 class="navn">ERIK NYGÅrD</h2>
-                    <p class="info">test test etst test test test test etsetsetets </p>
+                    <h2 class="navn">@Model.Navn</h2>
+                    <p class="info">service beskrivelse</p>
                 </div>
             </div>
         </div>
     </div>
+
+<script> // her lages en modal, den skal sende dataen fra det spesifikke service kortet over til service skjemaet. 
+    var title, info; 
+
+    $(document).ready(function() {
+        $('.kort').click(function() {
+            // Fjerner andre modals
+            $('.modal').remove();
+
+            // Henter tittel og beskrivelse
+            title = $(this).find('.navn').text();
+            info = $(this).find('.info').text();
+
+            // Lage modal
+            var modalContent = '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+            modalContent += '<div class="modal-dialog" role="document">';
+            modalContent += '<div class="modal-content">';
+            modalContent += '<div class="modal-header">';
+            modalContent += '<h5 class="modal-title" id="exampleModalLabel">' + title + '</h5>';
+            modalContent += '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">';
+            modalContent += '<span aria-hidden="true">&times;</span>';
+            modalContent += '</button>';
+            modalContent += '</div>';
+            modalContent += '<div class="modal-body">';
+            modalContent += '<p>' + info + '</p>';
+            modalContent += '</div>';
+            modalContent += '<div class="modal-footer">';
+            modalContent += '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lukk</button>';
+            modalContent += '<button type="button" class="btn btn-primary" onclick="ferdiggjorOrdre()">Fortsett til service skjema</button>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+            modalContent += '</div>';
+
+            $('body').append(modalContent);
+
+            $('#exampleModal').modal('show');
+        });
+    }); 
+
+    function ferdiggjorOrdre() {
+        var ServiceFormUrl = '@Url.Action("ServiceForm", "Home")';
+        ServiceFormUrl += '?title=' + encodeURIComponent(title);
+        ServiceFormUrl += '&info=' + encodeURIComponent(info);
+        window.location.href = '@Url.Action("NewServiceDef", "DefaultVerdier")/'
+    }
+</script>
