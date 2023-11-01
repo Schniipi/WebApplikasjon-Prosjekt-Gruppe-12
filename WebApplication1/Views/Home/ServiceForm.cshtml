@@ -1,5 +1,7 @@
 @model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
 
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
 
 <div id="order1" class="text" onclick="slettOrder(this)">
     <p>Navn til kunden: @Model.Navn</p>
@@ -92,8 +94,6 @@
 
     <p id="theDiv">+</p>
 
-</div>
-
 <script>
 
     //Skal kunne slette ordre, skal etterhvert forsøke å få dette til å fjerne elementer fra databasen
@@ -114,15 +114,3 @@
 
     }
 </script>
-
-
-<style>
-    body {
-        background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
-        background-size: cover;
-    }
-
-    .text {
-        color: white;
-    }
-</style>
