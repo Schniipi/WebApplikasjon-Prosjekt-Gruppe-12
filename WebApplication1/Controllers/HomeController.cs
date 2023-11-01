@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult GjennomfortService()
+        public IActionResult GjennomførtS()
         {
             return View();
         }
@@ -37,7 +37,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult NewService() 
+        public IActionResult NyService() 
         {
             return View();
         }
@@ -51,12 +51,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-       public IActionResult Service_form()
-        {
-            return View();
-        } 
-
-        public IActionResult PagaendeS() 
+        public IActionResult PågåendeS() 
         {
             return View();
         }
