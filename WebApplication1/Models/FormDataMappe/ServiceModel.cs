@@ -3,7 +3,7 @@ namespace WebApplication1.Models.FormDataMappe.ServiceModel
 
 
 {
-    
+
     public class FormData
     {
         [Required]

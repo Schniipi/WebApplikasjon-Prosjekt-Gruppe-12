@@ -8,25 +8,11 @@
     <p>Dersom det dukker opp "default" verdier, må det legges til en ny kunde igjennom "new service"</p>
 </div>
 
-<!--enctype="application/x-www-form-urlencoded"-->
-<form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
-    @Html.AntiForgeryToken()
-    <label asp-for="Navn"></label>
-    <br />
-    <input asp-for="Navn" type="text"/><br />
-    <label asp-for="TelefonNummer"></label>
-    <br />
-    <input asp-for="TelefonNummer" type="number" /><br />
-    <input type="submit" />
-</form>
-
-
-
 <form asp-action="Privacy" asp-controller="Controllers" method="post">
     @Html.AntiForgeryToken()
     <div class="ramme">
 
-        <p class="undertittel">Service Skjema</p>
+        <p class="text">Service Skjema</p>
         <table class="table table-striped bg-white">
             <thead>
                 <tr>
@@ -138,9 +124,5 @@
 
     .text {
         color: white;
-    }
-
-    :hover {
-        color: red;
     }
 </style>

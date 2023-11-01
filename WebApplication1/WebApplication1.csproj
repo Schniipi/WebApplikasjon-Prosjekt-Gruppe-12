@@ -43,10 +43,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Compile>
-    <Compile Update="Models\FormDataMappe\ServiceModel.cs">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Compile>
     <Compile Update="Repositories\IFormRepository.cs">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Compile>
@@ -60,7 +56,6 @@
     <Content Remove="brukerData\brukerDataForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\FormDataMappe\" />
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
   </ItemGroup>
