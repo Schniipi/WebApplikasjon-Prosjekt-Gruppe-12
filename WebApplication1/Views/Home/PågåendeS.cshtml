@@ -7,10 +7,13 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/pågåendes.css" asp-append-version="true" />
 
+
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="~/js/pågåendes.js" asp-append-version="true"></script>
 
 <!-- Her lages kortene, nå er det bare manuelt lagt inn, men skal bli en foreach { item i liste som blir hentet fra kommende service } -->
     <div class="kort-container">
@@ -44,50 +47,3 @@
             </div>
         </div>
     </div>
-
-<script> // her lages en modal, den skal sende dataen fra det spesifikke service kortet over til service skjemaet. 
-    var title, info; 
-
-    $(document).ready(function() {
-        $('.kort').click(function() {
-            // Fjerner andre modals
-            $('.modal').remove();
-
-            // Henter tittel og beskrivelse
-            title = $(this).find('.navn').text();
-            info = $(this).find('.info').text();
-
-            // Lage modal
-            var modalContent = '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';
-            modalContent += '<div class="modal-dialog" role="document">';
-            modalContent += '<div class="modal-content">';
-            modalContent += '<div class="modal-header">';
-            modalContent += '<h5 class="modal-title" id="exampleModalLabel">' + title + '</h5>';
-            modalContent += '<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">';
-            modalContent += '<span aria-hidden="true">&times;</span>';
-            modalContent += '</button>';
-            modalContent += '</div>';
-            modalContent += '<div class="modal-body">';
-            modalContent += '<p>' + info + '</p>';
-            modalContent += '</div>';
-            modalContent += '<div class="modal-footer">';
-            modalContent += '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lukk</button>';
-            modalContent += '<button type="button" class="btn btn-primary" onclick="ferdiggjorOrdre()">Fortsett til service skjema</button>';
-            modalContent += '</div>';
-            modalContent += '</div>';
-            modalContent += '</div>';
-            modalContent += '</div>';
-
-            $('body').append(modalContent);
-
-            $('#exampleModal').modal('show');
-        });
-    }); 
-
-    function ferdiggjorOrdre() {
-        var ServiceFormUrl = '@Url.Action("ServiceForm", "Home")';
-        ServiceFormUrl += '?title=' + encodeURIComponent(title);
-        ServiceFormUrl += '&info=' + encodeURIComponent(info);
-        window.location.href = '@Url.Action("NewServiceDef", "DefaultVerdier")/'
-    }
-</script>
