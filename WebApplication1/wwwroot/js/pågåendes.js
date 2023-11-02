@@ -40,8 +40,9 @@ $(document).ready(function () {
 });
 
 function ferdiggjorOrdre() {
-    var ServiceFormUrl = '@Url.Action("ServiceForm", "Home")';
-    ServiceFormUrl += '?title=' + encodeURIComponent(title);
-    ServiceFormUrl += '&info=' + encodeURIComponent(info);
-    window.location.href = '@Url.Action("KommendeS", "DefaultVerdier")/'
+
+    var title = encodeURIComponent("your_title_value");
+    var info = encodeURIComponent("your_info_value");
+
+    window.location.href = '/DefaultVerdier/KommendeS'
 }
