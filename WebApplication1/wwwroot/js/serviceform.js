@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+//Skal kunne slette ordre, skal etterhvert forsøke å få dette til å fjerne elementer fra databasen
+function slettOrder(element) {
 
-// Write your JavaScript code.
+    $(element).html("");
+}
+
+
+//ikke mulig enda, men skal etterhvert kunne hente flere navn fra databasen
+function seOrdre() {
+    var endring = "\n @Model.Navn"
+
+    document.getElementById("theDiv").innerHTML += endring;
+}

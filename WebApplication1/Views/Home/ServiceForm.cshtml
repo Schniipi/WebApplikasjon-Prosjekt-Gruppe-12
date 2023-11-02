@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
+<script src="~/js/serviceform.js" asp-append-version="true"></script>
+
 
 <div id="order1" class="text" onclick="slettOrder(this)">
     <p>Navn til kunden: @Model.Navn</p>
@@ -93,24 +95,3 @@
 </form>
 
     <p id="theDiv">+</p>
-
-<script>
-
-    //Skal kunne slette ordre, skal etterhvert forsøke å få dette til å fjerne elementer fra databasen
-    function slettOrder(element) {
-
-        $(element).html("");
-    }
-
-
-    //ikke mulig enda, men skal etterhvert kunne hente flere navn fra databasen
-    function seOrdre() {
-        var endring = "\n @Model.Navn"
-
-        document.getElementById("theDiv").innerHTML += endring;
-
-        
-
-
-    }
-</script>

@@ -1,5 +1,11 @@
-﻿/* custom.css */
+﻿
+.hide {
+    display: none;
+}
+
 .custom-navbar {
-    background: #000033;
-    color: darkblue;
+    background-color: rgba(16,24,32,255);
+    position: relative;
+    z-index: 1000;
+    width: 100%;
 }
