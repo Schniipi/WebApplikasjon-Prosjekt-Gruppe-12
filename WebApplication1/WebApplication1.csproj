@@ -64,10 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
-<<<<<<< Updated upstream
-=======
     <Folder Include="Views\wads\" />
     <Folder Include="Tables\" />
->>>>>>> Stashed changes
   </ItemGroup>
 </Project>
