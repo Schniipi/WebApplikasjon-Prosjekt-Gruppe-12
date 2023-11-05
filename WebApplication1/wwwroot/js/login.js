@@ -1,5 +1,4 @@
 ﻿
-
 function logIn() {
     var pass = document.getElementById("passwordID").value;
     var usr = document.getElementById("userID").value;
