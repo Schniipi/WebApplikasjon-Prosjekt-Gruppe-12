@@ -1,12 +1,11 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace WebApplication1.Models.FormDataMappe.ServiceModel
+namespace WebApplication1.Models.FormDataMappe
 
 {
     public class ServiceModelRepository
@@ -31,7 +30,7 @@ namespace WebApplication1.Models.FormDataMappe.ServiceModel
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<FormData>("SELECT * FROM People");
+                return dbConnection.Query<FormData>("SELECT * FROM brukere");
             }
         }
 
@@ -40,7 +39,7 @@ namespace WebApplication1.Models.FormDataMappe.ServiceModel
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO People (FirstName, LastName) VALUES (@FirstName, @LastName)", bruker);
+                dbConnection.Execute("INSERT INTO brukere (Navn, TelefonNummer, Kommentar) VALUES (@Navn, @TelefonNummer, @Kommentar)", bruker);
             }
         }
     }

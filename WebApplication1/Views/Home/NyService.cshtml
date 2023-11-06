@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
+﻿@model WebApplication1.Models.FormDataMappe.FormData;
 @{
     ViewData["Title"] = "Service Form";
 }
@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/css/nyservice.css" asp-append-version="true" />
 
 <!--enctype="application/x-www-form-urlencoded"-->
-<form asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
+<form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
     <label asp-for="Navn"></label>
     <br />
     <input asp-for="Navn" type="text" /><br />

@@ -30,3 +30,21 @@
 
 <div id="feilBrPsord" style="text-align: center; color: red;"></div>
 <div id="inlogget" style="right: 130px; top: 18px; position: absolute; color: black;">ikke logget inn</div>
+
+<script>
+
+    function logIn() {
+        var pass = document.getElementById("passwordID").value;
+        var usr = document.getElementById("userID").value;
+
+        if (usr === "Admin" & pass === "123") {
+            window.location = "/Home/Hjemmeside";
+        } else {
+            var errorMsg = document.getElementById("feilBrPsord").innerHTML = "Ugyldig brukernavn/passord";
+            var inlogget = document.getElementById("inlogget").innerHTML = usr;
+
+        }
+    }
+
+
+</script>
