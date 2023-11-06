@@ -5,6 +5,7 @@
 <script src="~/js/serviceform.js" asp-append-version="true"></script>
 
 
+
 <div id="order1" class="text" onclick="slettOrder(this)">
     <p>Navn til kunden: @Model.Navn</p>
     <p>Telefon til kunden: @Model.TelefonNummer</p>
@@ -13,7 +14,6 @@
 </div>
 
 <form asp-action="Privacy" asp-controller="Controllers" method="post">
-    @Html.AntiForgeryToken()
     <div class="ramme">
 
         <p class="text">Service Skjema</p>
