@@ -8,20 +8,25 @@
 
 <!--container for alle bildene med tekst i midten-->
 <div class="images">
-    <img id="image" style="border-right: 1px solid;" src="https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/Heading-bla-002.jpg" />
-    <a asp-controller="DefaultVerdier" asp-action="KommendeS" method="post">
-        <p id="textVisual" class="textVisual" style="left: 100px;">Kommende service</p>
-    </a>
+    <div class="image-container">
+        <img class="workshop-image" src="/images/Kjetting.jpg" />
+        <a asp-controller="DefaultVerdier" asp-action="KommendeS" method="post">
+            <p class="textVisual kommende-service">Kommende service</p>
+        </a>
+    </div>
 
-    <img id="image" style="border-right: 1px solid;" src="https://res.cloudinary.com/mhadaily/image/upload/w_820,f_auto,q_85/nosted/cmspro/20200225_104455_333596c667.jpg?_i=AA" />
-    <a asp-controller="DefaultVerdier" asp-action="PågåendeS" method="post">
-        <p id="textVisual" class="textVisual" style="left: 550px;">Pågående service</p>
-    </a>
+    <div class="image-container">
+        <img class="workshop-image" src="/images/Verksted.jpg" />
+        <a asp-controller="DefaultVerdier" asp-action="PågåendeS" method="post">
+            <p class="textVisual paagaaende-service">Pågående service</p>
+        </a>
+    </div>
 
-    <img id="image" src="https://res.cloudinary.com/mhadaily/image/upload/w_600,f_auto,q_85/nosted/cmspro/trygg_vei_3316481977.png?_i=AA" />
-    <a asp-controller="DefaultVerdier" asp-action="GjennomførtS" method="post">
-        <p id="textVisual" class="textVisual" style="left: 970px;">Gjennomført service</p>
-    </a>
-
+    <div class="image-container">
+        <img class="workshop-image" src="/images/Vei.jpg" />
+        <a asp-controller="DefaultVerdier" asp-action="GjennomførtS" method="post">
+            <p class="textVisual gjennomfoert-service">Gjennomført service</p>
+        </a>
+    </div>
 </div>
 
