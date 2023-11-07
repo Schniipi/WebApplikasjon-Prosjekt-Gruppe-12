@@ -33,7 +33,7 @@ app.Use(async (context, next) =>
         "img-src 'self';" +
         "font-src 'self'; " +
         "style-src 'self'; " +
-        "script-src 'self''sha256-225058969f03b805882feb9401db6e53a7b6d0f32f0ab0d51b57e7a3d002003a'; " +
+        "script-src 'self'; " +
         "frame-src 'self'; " +
         "connect-src 'self' wss;") ;
     await next();

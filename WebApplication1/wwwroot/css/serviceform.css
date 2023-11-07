@@ -1,6 +1,6 @@
 ﻿
 body {
-    background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
+    background-image: url('/images/sliping.jpg');
     background-size: cover;
 }
 
