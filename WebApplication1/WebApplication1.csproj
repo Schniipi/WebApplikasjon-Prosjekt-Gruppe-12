@@ -63,6 +63,7 @@
     <Content Remove="brukerData\brukerDataForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Filters\" />
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
     <Folder Include="Tables\" />

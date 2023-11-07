@@ -7,7 +7,6 @@ using WebApplication1.Models.FormDataMappe;
 
 namespace WebApplication1.Controllers.DefaultVerdierController
 {
-    [AddSecurityHeaders]
     public class DefaultVerdierController : Controller
     {
 
