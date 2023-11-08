@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 
-namespace WebApplication1.Models.FormDataMappe.ServiceModel
+namespace WebApplication1.Models.FormDataMappe
 {
     public class FormData
     {
