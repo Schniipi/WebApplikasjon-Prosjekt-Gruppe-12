@@ -42,5 +42,15 @@ namespace WebApplication1.Models.FormDataMappe
                 dbConnection.Execute("INSERT INTO brukere (Navn, TelefonNummer, Kommentar) VALUES (@Navn, @TelefonNummer, @Kommentar)", bruker);
             }
         }
+
+        public void Remove(FormData bruker)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                dbConnection.Execute("DELETE FROM brukere WHERE id = @deleteID", bruker);
+            }
+        }
+
     }
 }
