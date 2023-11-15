@@ -43,10 +43,10 @@ button.accept-policy {
     */
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;*/
+  margin-top: 200px;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px;
+  line-height: 600px;
   color: black;
 }

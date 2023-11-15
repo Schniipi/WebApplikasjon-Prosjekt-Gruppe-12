@@ -1,18 +1,17 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models.Filters;
-using WebApplication1.Models.FormDataMappe.ServiceModel;
+using WebApplication1.Models.FormDataMappe;
 
 
 
 namespace WebApplication1.Controllers.DefaultVerdierController
 {
-    [AddSecurityHeaders]
     public class DefaultVerdierController : Controller
     {
 
         [HttpGet]
-        public IActionResult NewServiceDef()
+        public IActionResult KommendeS()
         {
 
             var model = new FormData
@@ -27,7 +26,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
         }
 
         [HttpGet]
-        public IActionResult GjennomfortServiceDef()
+        public IActionResult GjennomførtS()
         {
 
             var model = new FormData
@@ -38,11 +37,11 @@ namespace WebApplication1.Controllers.DefaultVerdierController
                 Kommentar = "default kommentar"
             };
 
-            return View("/Views/Home/GjennomfortService.cshtml", model);
+            return View("/Views/Home/GjennomførtS.cshtml", model);
         }
 
         [HttpGet]
-        public IActionResult PagaendeSDef()
+        public IActionResult PågåendeS()
         {
 
             var model = new FormData
@@ -53,7 +52,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
                 Kommentar = "default kommentar"
             };
 
-            return View("/Views/Home/PagaendeS.cshtml", model);
+            return View("/Views/Home/PågåendeS.cshtml", model);
         }
 
 

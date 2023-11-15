@@ -15,10 +15,14 @@
     <Content Remove="Views\ServiceFormMappe\**" />
     <EmbeddedResource Remove="Views\ServiceFormMappe\**" />
     <None Remove="Views\ServiceFormMappe\**" />
+    <Compile Remove="MariaDBDapper.csproj" />
+    <None Remove="Tables\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="Dapper" Version="2.1.15" />
+    <PackageReference Include="MySqlConnector" Version="2.2.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +31,9 @@
     <None Remove="Views\wads\" />
     <None Remove="Views\ServiceFormMappe\" />
     <None Remove="Views\BrukerHandlinger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MariaDBDapper.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Views\Home\cssStyle.css">
@@ -56,7 +63,9 @@
     <Content Remove="brukerData\brukerDataForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Filters\" />
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
+    <Folder Include="Tables\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,36 @@
-﻿/* custom.css */
-.custom-navbar {
-    background: #000033;
-    color: darkblue;
+﻿
+.hide {
+    display: none;
 }
+
+.custom-navbar {
+    background-color: rgba(16,24,32,255);
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+}
+
+.log-out-link {
+    font-size: 20px;
+    right: 20px;
+    position: absolute;
+}
+
+.logout-box {
+    font-size: 30px;
+    color: black;
+    background-color: orange;
+    border: 2px solid;
+    padding: 20px;
+    padding-bottom: 50px;
+    position: fixed; /* Use fixed positioning */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* This will center the box */
+    z-index: 1000; /* Ensure it's above other content */
+    display: none;
+}
+
+.logout-box.show {
+        display: block; /* Display the box when this class is added */
+ }

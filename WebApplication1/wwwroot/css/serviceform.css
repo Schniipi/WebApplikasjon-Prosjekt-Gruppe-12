@@ -1,0 +1,19 @@
+﻿
+body {
+    background-image: url('/images/sliping.jpg');
+    background-size: cover;
+    color: white;
+}
+
+.table {
+    background-color: black;
+    color: black;
+}
+
+.text {
+    color: white;
+}
+
+.text:hover {
+    color: red;
+}

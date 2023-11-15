@@ -1,128 +1,36 @@
-@model WebApplication1.Models.FormDataMappe.ServiceModel.FormData;
+@using WebApplication1.Models.FormDataMappe;
+@model IEnumerable<WebApplication1.Models.FormDataMappe.FormData>
+
+
+@{
+    ViewData["Title"] = "ServiceForm";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
+<script src="~/js/serviceform.js" asp-append-version="true"></script>
+
+@foreach (var brukere in Model)
+{
+        <br />
+        <td class="table">kundeID: @brukere.id</td>
+        <br />
+        <td class="table">Navn: @brukere.Navn</td>
+        <br />
+        <td class="table">Telefonnummer: @brukere.TelefonNummer</td>
+        <br />
+        <td class="table">Kommentar: @brukere.Kommentar  </td>
+        <br />
+}
+
+<!--
 
 
 <div id="order1" class="text" onclick="slettOrder(this)">
-    <p>Navn til kunden: @Model.Navn</p>
-    <p>Telefon til kunden: @Model.TelefonNummer</p>
-    <p>Kommentar fra kunden: @Model.Kommentar</p>
+    <p>Navn til kunden: </p>
+    <p>Telefon til kunden: </p>
+    <p>Kommentar fra kunden: </p>
     <p>Dersom det dukker opp "default" verdier, må det legges til en ny kunde igjennom "new service"</p>
 </div>
 
-<form asp-action="Privacy" asp-controller="Controllers" method="post">
-    @Html.AntiForgeryToken()
-    <div class="ramme">
-
-        <p class="text">Service Skjema</p>
-        <table class="table table-striped bg-white">
-            <thead>
-                <tr>
-                    <th scope="col">Avdeling</th>
-                    <th scope="col">Sjekkpunkter</th>
-                    <th scope="col">Ok</th>
-                    <th scope="col">Bør skiftes</th>
-                    <th scope="col">Defekt</th>
-                </tr>
-            </thead>
-
-            <tr id="wasd">
-
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk clutch lammeler for slitasje</td>
-                <td><input type="radio" name="status-1-1" value="Ok"></td>
-                <td><input type="radio" name="status-1-1" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-1" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk bremser. Bånd/Pal</td>
-                <td><input type="radio" name="status-1-2" value="Ok"></td>
-                <td><input type="radio" name="status-1-2" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-2" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk lager for trommel</td>
-                <td><input type="radio" name="status-1-3" value="Ok"></td>
-                <td><input type="radio" name="status-1-3" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-3" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk PTO og opplagring</td>
-                <td><input type="radio" name="status-1-4" value="Ok"></td>
-                <td><input type="radio" name="status-1-4" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-4" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk kjedestrammer</td>
-                <td><input type="radio" name="status-1-5" value="Ok"></td>
-                <td><input type="radio" name="status-1-5" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-5" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk wire</td>
-                <td><input type="radio" name="status-1-6" value="Ok"></td>
-                <td><input type="radio" name="status-1-6" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-6" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk pinion lager</td>
-                <td><input type="radio" name="status-1-7" value="Ok"></td>
-                <td><input type="radio" name="status-1-7" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-7" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk kile på kjedehjul</td>
-                <td><input type="radio" name="status-1-8" value="Ok"></td>
-                <td><input type="radio" name="status-1-8" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-8" value="Defekt"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="save-buttons">
-        <button type="submit" class="btn btn-dark">Lagre og ferdiggjør senere</button>
-        <button type="button" class="btn btn-dark" onclick="displayRadioValue()">Ferdiggjør ordre</button>
-
-    </div>
-</form>
-
-    <p id="theDiv">+</p>
-
-</div>
-
-<script>
-
-    //Skal kunne slette ordre, skal etterhvert forsøke å få dette til å fjerne elementer fra databasen
-    function slettOrder(element) {
-
-        $(element).html("");
-    }
-
-
-    //ikke mulig enda, men skal etterhvert kunne hente flere navn fra databasen
-    function seOrdre() {
-        var endring = "\n @Model.Navn"
-
-        document.getElementById("theDiv").innerHTML += endring;
-
-        
-
-
-    }
-</script>
-
-
-<style>
-    body {
-        background-image: url(https://res.cloudinary.com/mhadaily/image/upload/w_1600,f_auto,q_85/nosted/cmspro/homepage_bg.jpg);
-        background-size: cover;
-    }
-
-    .text {
-        color: white;
-    }
-</style>
+-->
