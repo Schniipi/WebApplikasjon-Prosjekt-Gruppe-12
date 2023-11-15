@@ -1,26 +1,25 @@
 ﻿
 body {
-    background-image: url('/images/sliping.jpg');
+    background-image: url("/images/Vei.jpg");
     background-size: cover;
 }
+
 
 .container {
     font-size: 1.3rem;
     font-family: sans-serif;
     color: #888;
-    text-align: center;
 }
 
 .kort-container {
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 80vh;
     overflow-x: auto;
 }
 
 .kort {
-    margin-right: 75px;
+    margin-right: 50px;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100px 500px auto;
@@ -38,6 +37,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 300px;
 }
 
 .tittel {

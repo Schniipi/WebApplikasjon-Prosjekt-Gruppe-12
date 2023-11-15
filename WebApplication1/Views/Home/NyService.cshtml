@@ -1,10 +1,12 @@
-﻿@model WebApplication1.Models.FormDataMappe.FormData;
+﻿@model WebApplication1.Models.Tables.KundeData;
 @{
     ViewData["Title"] = "Service Form";
 }
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/nyservice.css" asp-append-version="true" />
+
+<h1>Registrer ny kunde her</h1>
 
 <!--enctype="application/x-www-form-urlencoded"-->
 <form asp-controller="Api" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
@@ -23,7 +25,8 @@
 <!--slett en kunde med tilsvarende id fra databasen-->
 
 <br />
-<label asp-for="DeleteID"> slett bruker her \n a</label>
+<h2>Slett kunde her</h2>
+<label asp-for="DeleteID">KundeID:</label>
 <form asp-controller="DeleteData" asp-action="Delete" method="post">
-    <input asp-for="DeleteID" type="number" />
+    <input asp-for="DeleteID" type="number"/>
 </form>

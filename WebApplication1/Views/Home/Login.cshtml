@@ -1,4 +1,11 @@
-﻿@{
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Identity
+@using WebApplication1.Models.Tables;
+@model BrukerData
+
+@{
     ViewData["Title"] = "nøsted &";
 }
 
@@ -8,42 +15,20 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div class="undertitle">
-    <p>Serviceportal</p>
-</div>
-
-<div style="text-align: center; margin-left: auto;">
-    <form id="form_login">
-        <p style="font-weight: bold;">Velkommen!</p>
-        <div class="form-group">
-            <label for="exampleUsername">Brukernavn</label>
-            <input type="text" class="form-control" id="userID" aria-describedby="usernameHelp" placeholder="Brukernavn">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Passord</label>
-            <input type="password" class="form-control" id="passwordID" placeholder="Passord">
-        </div>
-        <button type="button" class="btn btn-primary" onclick="logIn()">Fortsett</button>
-    </form>
-</div>
-
-<div id="feilBrPsord" style="text-align: center; color: red;"></div>
-<div id="inlogget" style="right: 130px; top: 18px; position: absolute; color: black;">ikke logget inn</div>
-
-<script>
-
-    function logIn() {
-        var pass = document.getElementById("passwordID").value;
-        var usr = document.getElementById("userID").value;
-
-        if (usr === "Admin" & pass === "123") {
-            window.location = "/Home/Hjemmeside";
-        } else {
-            var errorMsg = document.getElementById("feilBrPsord").innerHTML = "Ugyldig brukernavn/passord";
-            var inlogget = document.getElementById("inlogget").innerHTML = usr;
-
-        }
-    }
+<p class="undertitle">Log in using your username and password</p>
 
 
-</script>
+<form asp-controller="LoginUser" asp-action="Login" method="post">
+    <hr />
+    <label asp-for="BrukerNavn">Navn:  </label>
+    <input asp-for="BrukerNavn" type="text" />
+    <span asp-validation-for="BrukerNavn"></span>
+    <br />
+    <label asp-for="BrukerPassord">Passord:</label>
+    <input asp-for="BrukerPassord" type="text" />
+    <span asp-validation-for="BrukerNavn"></span>
+    <br />
+    <input type="submit" class="btn-primary" />
+</form>
+
+<!--id-->

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using WebApplication1.Models.FormDataMappe;
+using WebApplication1.Models.Tables;
 using MySqlConnector;
 using System.Data;
+using System.Reflection.PortableExecutable;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DapperMariaDBDemo
 {
@@ -31,11 +33,37 @@ namespace DapperMariaDBDemo
                         services.AddScoped<IDbConnection>(_ => new MySqlConnection(connectionString));
 
                         // Register your repository here.
-                        services.AddTransient<ServiceModelRepository>();
+                        services.AddTransient<KundeTableModelRepository>();
+                        services.AddTransient<BrukerTableModelRepository>();
+
+                        services.AddAuthentication(options =>
+                        {
+                            options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                            options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+                            //Default log in scheme
+                            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                        })
+                            .AddCookie(options =>
+                            {
+                                options.LoginPath = "/Home/Login"; 
+                                options.AccessDeniedPath = "/Home/Error"; 
+                            });
+                        services.AddRazorPages();
+                        services.AddControllersWithViews();
+
+                        services.AddAuthorization(options =>
+                        {
+                            options.AddPolicy("UserOnly", policy => policy.RequireClaim("BrukerNavn"));
+                        });
+
                     });
 
                     webBuilder.Configure((appBuilder) =>
                     {
+ 
+
                         var env = appBuilder.ApplicationServices.GetRequiredService<IWebHostEnvironment>();
 
                         if (env.IsDevelopment())

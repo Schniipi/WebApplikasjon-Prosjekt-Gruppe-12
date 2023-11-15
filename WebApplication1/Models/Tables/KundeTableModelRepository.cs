@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace WebApplication1.Models.FormDataMappe
+namespace WebApplication1.Models.Tables
 
 {
-    public class ServiceModelRepository
+    public class KundeTableModelRepository
     {
         private readonly IConfiguration _config;
 
-        public ServiceModelRepository(IConfiguration config)
+        public KundeTableModelRepository(IConfiguration config)
         {
             _config = config;
         }
@@ -25,30 +25,30 @@ namespace WebApplication1.Models.FormDataMappe
             }
         }
 
-        public IEnumerable<FormData> GetAll()
+        public IEnumerable<KundeData> GetAll()
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<FormData>("SELECT * FROM brukere");
+                return dbConnection.Query<KundeData>("SELECT * FROM kunde");
             }
         }
 
-        public void Insert(FormData bruker)
+        public void Insert(KundeData kunde)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO brukere (Navn, TelefonNummer, Kommentar) VALUES (@Navn, @TelefonNummer, @Kommentar)", bruker);
+                dbConnection.Execute("INSERT INTO kunde (Navn, TelefonNummer, Kommentar) VALUES (@Navn, @TelefonNummer, @Kommentar)", kunde);
             }
         }
 
-        public void Remove(FormData bruker)
+        public void Remove(KundeData kunde)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM brukere WHERE id = @deleteID", bruker);
+                dbConnection.Execute("DELETE FROM kunde WHERE id = @deleteID", kunde);
             }
         }
 

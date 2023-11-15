@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models.Filters;
-using WebApplication1.Models.FormDataMappe;
+using WebApplication1.Models.Tables;
 
 
 
@@ -14,7 +14,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
         public IActionResult KommendeS()
         {
 
-            var model = new FormData
+            var model = new KundeData
             {
 
                 Navn = "default",
@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
         public IActionResult GjennomførtS()
         {
 
-            var model = new FormData
+            var model = new KundeData
             {
 
                 Navn = "default",
@@ -41,10 +41,10 @@ namespace WebApplication1.Controllers.DefaultVerdierController
         }
 
         [HttpGet]
-        public IActionResult PågåendeS()
+        public IActionResult PagaendeS()
         {
 
-            var model = new FormData
+            var model = new KundeData
             {
 
                 Navn = "default",
@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers.DefaultVerdierController
                 Kommentar = "default kommentar"
             };
 
-            return View("/Views/Home/PågåendeS.cshtml", model);
+            return View("/Views/Home/Hjemmeside.cshtml", model);
         }
 
 

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+@using WebApplication1.Controllers.Login;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!--navigeringsbar på hver side-->
@@ -14,6 +17,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body>
+
     <!--Navigeringsbaren sine visuelle elementer-->
     <header>
         @if (!(Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Equals("/Home/login", StringComparison.OrdinalIgnoreCase)))
@@ -33,6 +37,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="NyService">Ny Service</a>
                             </li>
+
                         </ul>
                     </div>
                 </div>

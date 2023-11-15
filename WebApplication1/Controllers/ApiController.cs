@@ -1,7 +1,9 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models.Filters;
-using WebApplication1.Models.FormDataMappe;
+using WebApplication1.Models.Tables;
 
 namespace WebApplication1.Controllers.ApiController
 
@@ -9,16 +11,16 @@ namespace WebApplication1.Controllers.ApiController
     public class ApiController : Controller
 
     {
-        private readonly ServiceModelRepository _repository;
+        private readonly KundeTableModelRepository _repository;
 
-        public ApiController(ServiceModelRepository repository){
+        public ApiController(KundeTableModelRepository repository){
             _repository = repository;
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Save(FormData model)
+        public IActionResult Save(KundeData model)
         {
             if (ModelState.IsValid)
             {

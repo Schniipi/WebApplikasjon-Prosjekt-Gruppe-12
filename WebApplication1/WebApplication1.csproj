@@ -16,7 +16,6 @@
     <EmbeddedResource Remove="Views\ServiceFormMappe\**" />
     <None Remove="Views\ServiceFormMappe\**" />
     <Compile Remove="MariaDBDapper.csproj" />
-    <None Remove="Tables\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
@@ -66,6 +65,5 @@
     <Folder Include="Models\Filters\" />
     <Folder Include="Repositories\" />
     <Folder Include="Views\wads\" />
-    <Folder Include="Tables\" />
   </ItemGroup>
 </Project>

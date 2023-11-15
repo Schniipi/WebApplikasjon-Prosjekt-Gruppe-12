@@ -1,7 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-namespace WebApplication1.Models.FormDataMappe
+﻿namespace WebApplication1.Models.Tables
 {
-    public class FormData
+    public class KundeData
     {
         public int id { get; set; }
         public string Navn { get; set; }

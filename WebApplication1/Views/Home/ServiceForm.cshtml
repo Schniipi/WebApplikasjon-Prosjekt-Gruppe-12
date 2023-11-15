@@ -1,6 +1,6 @@
-@using WebApplication1.Models.FormDataMappe;
-@model IEnumerable<WebApplication1.Models.FormDataMappe.FormData>
+@model IEnumerable<WebApplication1.Models.Tables.KundeData>
 
+<!---->
 
 @{
     ViewData["Title"] = "ServiceForm";
@@ -10,27 +10,16 @@
 <link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
 <script src="~/js/serviceform.js" asp-append-version="true"></script>
 
-@foreach (var brukere in Model)
-{
-        <br />
-        <td class="table">kundeID: @brukere.id</td>
-        <br />
-        <td class="table">Navn: @brukere.Navn</td>
-        <br />
-        <td class="table">Telefonnummer: @brukere.TelefonNummer</td>
-        <br />
-        <td class="table">Kommentar: @brukere.Kommentar  </td>
-        <br />
-}
-
-<!--
-
-
-<div id="order1" class="text" onclick="slettOrder(this)">
-    <p>Navn til kunden: </p>
-    <p>Telefon til kunden: </p>
-    <p>Kommentar fra kunden: </p>
-    <p>Dersom det dukker opp "default" verdier, må det legges til en ny kunde igjennom "new service"</p>
-</div>
-
--->
+<table class="table">
+    <tbody>
+        @foreach (var kunder in Model)
+        {
+        <tr>
+            <td class="table">kundeID: @kunder.id</td>
+            <td class="table">Navn: @kunder.Navn</td>
+            <td class="table">Telefonnummer: @kunder.TelefonNummer</td>
+            <td class="table">Kommentar: @kunder.Kommentar  </td>
+        </tr>
+    }
+        </tbody>
+    </table>
