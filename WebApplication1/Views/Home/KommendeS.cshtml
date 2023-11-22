@@ -1,2 +1,48 @@
-﻿
+@model IEnumerable<WebApplication1.Tables.KundeData>
+
+@{
+    ViewData["Title"] = "KommendeS";
+
+    //for å identifisere hvilken ID submit knappen skal refferere til
+    
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
+<script src="~/js/kommendes.js" asp-append-version="true"></script>
+ 
+
+
+    <table class="table">
+            @foreach (var kunder in Model)
+                {
+                <tr>
+                    <form asp-controller="BringData" asp-action="OpprettService" method="post">
+
+                    <td class="table">kundeID: @kunder.KundeID</td>
+                    <td class="table">Fornavn: @kunder.Fornavn</td>
+                    <td class="table">Etternavn: @kunder.Etternavn</td>
+                    <td class="table">Bedrift: @kunder.Bedrift  </td>
+                    <td class="table">Telefonnummer: @kunder.TelefonNR  </td>
+                    <td class="table">Adresse: @kunder.Adresse  </td>
+
+                    <!--Har en ID som øker med +1 for hvert nytt table som generes for å skille "Submit" knappene-->
+                    <td>
+                        <button  id="btn_@(kunder.KundeID)" class="OpprettService" type="button">Start service</button>
+                    </td>
+
+                    </form>
+                    
+
+                    
+                    <!--For å slette kunder ved å trykke på "X" KommendeSID
+    <form asp-controller="DeleteData" asp-action="Delete" method="post">
+        <td><input asp-for="kunder.DeleteID" type="submit" class="SlettService"/></td>
+    </form>
+    -->
+                </tr>
+
+            }
+
+    </table>
 

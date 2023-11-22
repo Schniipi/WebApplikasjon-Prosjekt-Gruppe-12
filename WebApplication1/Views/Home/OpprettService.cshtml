@@ -1,0 +1,32 @@
+﻿
+@using Microsoft.AspNetCore.Mvc;
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/serviceform.css" asp-append-version="true" />
+
+@model WebApplication1.Tables.ServiceData
+
+@{
+    //ID til den kunden som ble trykket "opprett service" på
+    var KundeIDString = ViewData["KundeID"] as string;
+}
+
+
+<p>KundeID: @KundeIDString</p>
+
+<div>
+    <form asp-controller="InsertData" asp-action="SaveService" method="post">
+        <input type="hidden" name="KundeID" value="@KundeIDString" />
+
+        <label asp-for="ServiceDeleted"></label>
+        <br />
+        <input asp-for="ServiceDeleted" type="number" />
+        <br />
+        <label asp-for="ServiceBeskrivelse"></label>
+        <br />
+        <input asp-for="ServiceBeskrivelse" type="text" />
+        <br />
+        <input type="submit" />
+    </form>
+</div>
+

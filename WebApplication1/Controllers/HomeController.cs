@@ -14,13 +14,12 @@ namespace WebApplication1.Controllers
         }
 
 
-
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult GjennomførtS()
+        public IActionResult GjennomfortS()
         {
             return View();
         }
@@ -35,7 +34,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult NyService() 
+        public IActionResult NyKunde() 
         {
             return View();
         }

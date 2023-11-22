@@ -3,23 +3,35 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using WebApplication1.Models.Tables;
+using WebApplication1.Repositories;
 using MySqlConnector;
 using System.Data;
-using System.Reflection.PortableExecutable;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DapperMariaDBDemo
 {
+    
     public class Program
     {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                    .ConfigureLogging((hostingContext, logging) =>
+                    {
+                        logging.ClearProviders(); // Remove any existing logging providers
+                        logging.AddConsole(); // Add console logging
+                    })
+ 
+
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.ConfigureServices((hostContext, services) =>
@@ -33,32 +45,32 @@ namespace DapperMariaDBDemo
                         services.AddScoped<IDbConnection>(_ => new MySqlConnection(connectionString));
 
                         // Register your repository here.
-                        services.AddTransient<KundeTableModelRepository>();
-                        services.AddTransient<BrukerTableModelRepository>();
+                        services.AddTransient<KundeTableRepository>();
+                        services.AddTransient<BrukerTableRepository>();
+                        services.AddTransient<ServiceTableRepository>();
 
-                        services.AddAuthentication(options =>
-                        {
-                            options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-
-                            //Default log in scheme
-                            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                        })
-                            .AddCookie(options =>
-                            {
-                                options.LoginPath = "/Home/Login"; 
-                                options.AccessDeniedPath = "/Home/Error"; 
-                            });
-                        services.AddRazorPages();
-                        services.AddControllersWithViews();
+                        services.AddSession();
+                        //{
+                        //    options.IdleTimeout = TimeSpan.FromMinutes(30);
+                        //});
 
                         services.AddAuthorization(options =>
                         {
                             options.AddPolicy("UserOnly", policy => policy.RequireClaim("BrukerNavn"));
+
                         });
 
+                        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                            .AddCookie(options =>
+                            {
+                                options.Cookie.Name = "Innlogget"; // Replace with your cookie name
+                                options.LoginPath = "/Home/Login"; // Set the login path
+                            });
+
+
+
                     });
+
 
                     webBuilder.Configure((appBuilder) =>
                     {
@@ -79,7 +91,12 @@ namespace DapperMariaDBDemo
                         appBuilder.UseHttpsRedirection();
                         appBuilder.UseStaticFiles();
                         appBuilder.UseRouting();
+
+                        appBuilder.UseSession();
+                        appBuilder.UseAuthentication();
                         appBuilder.UseAuthorization();
+
+                        appBuilder.UseHttpLogging();
 
                         appBuilder.UseEndpoints(endpoints =>
                         {
@@ -89,62 +106,7 @@ namespace DapperMariaDBDemo
                         });
                     });
                 });
+
+
     }
 }
-
-
-/*
-=======
-using Microsoft.AspNetCore.Mvc;
-
->>>>>>> origin/master
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllersWithViews(options =>
-{
-    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-});
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-// Sikkerhetsheaderene legges til her
-app.Use(async (context, next) =>
-{
-
-    context.Response.Headers.Add("X-Xss-Protection", "1");
-    context.Response.Headers.Add("X-Frame-Options", "DENY");
-    context.Response.Headers.Add("Referrer-Policy", "no-referrer");
-    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-    context.Response.Headers.Add(
-        "Content-Security-Policy",
-        "default-src 'self' ; " +
-        "img-src 'self';" +
-        "font-src 'self'; " +
-        "style-src 'self'; " +
-        "script-src 'self'; " +
-        "frame-src 'self'; " +
-        "connect-src 'self' wss;") ;
-    await next();
-});
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Login}/{id?}");
-
-app.Run();
-*/

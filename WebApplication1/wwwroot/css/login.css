@@ -1,4 +1,7 @@
-﻿
+﻿body {
+    background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
+}
+
 .btn-primary {
     margin-top: 10px;
     background-color: rgba(244,141,1,255);
@@ -31,6 +34,3 @@ h1 {
     color: rgba(113,133,143,255);
 }
 
-body {
-    background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
-}

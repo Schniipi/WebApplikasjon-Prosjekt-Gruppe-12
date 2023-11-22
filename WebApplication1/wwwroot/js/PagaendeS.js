@@ -44,5 +44,5 @@ function ferdiggjorOrdre() {
     var title = encodeURIComponent("your_title_value");
     var info = encodeURIComponent("your_info_value");
 
-    window.location.href = '/DefaultVerdier/KommendeS'
+    window.location.href = '/Home/GjennomfortS'
 }

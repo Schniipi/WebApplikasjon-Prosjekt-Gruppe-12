@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Plugins;
 using Dapper;
 using MySqlConnector;
+using WebApplication1.Tables;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WebApplication1.Models.Tables
+namespace WebApplication1.Repositories
 {
-    public class BrukerTableModelRepository : Controller
+    public class BrukerTableRepository : Controller
     {
         private readonly IConfiguration _config;
 
-        public BrukerTableModelRepository(IConfiguration config)
+        public BrukerTableRepository(IConfiguration config)
         {
             _config = config;
         }
@@ -34,16 +35,23 @@ namespace WebApplication1.Models.Tables
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<BrukerData>("SELECT * FROM brukere");
+                return dbConnection.Query<BrukerData>("SELECT * FROM Bruker");
             }
         }
 
-        public void ComparePassword(BrukerData bruker)
+        public IEnumerable<BrukerData> ComparePassword(string sjekkNavn)
         {
             using (IDbConnection dbConnection = Connection)
             {
+                string query = "SELECT Passord FROM Bruker WHERE BrukerNavn = @BrukerNavn";
+                //string query1 = "SELECT Passord FROM Bruker WHERE Passord = @Passord";
+
                 dbConnection.Open();
-                dbConnection.Execute("SELECT BrukerNavn FROM brukere WHERE BrukerNavn = @BrukerNavn", bruker);
+                return dbConnection.Query<BrukerData>(query, new { BrukerNavn = sjekkNavn });
+
+                //var pet1 = dbConnection.Query<BrukerData>(query1, new { Passord = sjekkPassord });
+
+      
             }
         }
     }

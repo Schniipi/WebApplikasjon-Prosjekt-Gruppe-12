@@ -16,6 +16,7 @@
     <EmbeddedResource Remove="Views\ServiceFormMappe\**" />
     <None Remove="Views\ServiceFormMappe\**" />
     <Compile Remove="MariaDBDapper.csproj" />
+    <None Remove="Tables\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
@@ -27,7 +28,6 @@
   <ItemGroup>
     <None Remove="Models\FormDataMappe\" />
     <None Remove="Repositories\" />
-    <None Remove="Views\wads\" />
     <None Remove="Views\ServiceFormMappe\" />
     <None Remove="Views\BrukerHandlinger\" />
   </ItemGroup>
@@ -56,6 +56,9 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Compile>
+    <Compile Update="Tables\ServiceTableModel.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Remove="ServiceModel.cs" />
@@ -64,6 +67,6 @@
   <ItemGroup>
     <Folder Include="Models\Filters\" />
     <Folder Include="Repositories\" />
-    <Folder Include="Views\wads\" />
+    <Folder Include="Tables\" />
   </ItemGroup>
 </Project>

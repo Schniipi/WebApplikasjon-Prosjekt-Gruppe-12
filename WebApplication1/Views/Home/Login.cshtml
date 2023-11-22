@@ -1,8 +1,4 @@
-﻿@using System.Collections.Generic
-@using Microsoft.AspNetCore.Http
-@using Microsoft.AspNetCore.Authentication
-@using Microsoft.AspNetCore.Identity
-@using WebApplication1.Models.Tables;
+﻿@using WebApplication1.Tables;
 @model BrukerData
 
 @{
@@ -24,9 +20,9 @@
     <input asp-for="BrukerNavn" type="text" />
     <span asp-validation-for="BrukerNavn"></span>
     <br />
-    <label asp-for="BrukerPassord">Passord:</label>
-    <input asp-for="BrukerPassord" type="text" />
-    <span asp-validation-for="BrukerNavn"></span>
+    <label asp-for="Passord">Passord:</label>
+    <input asp-for="Passord" type="text" />
+    <span asp-validation-for="Passord"></span>
     <br />
     <input type="submit" class="btn-primary" />
 </form>

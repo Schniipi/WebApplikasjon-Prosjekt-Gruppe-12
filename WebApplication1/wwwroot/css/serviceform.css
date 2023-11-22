@@ -10,10 +10,20 @@ body {
     color: black;
 }
 
-.text {
-    color: white;
+.OpprettService {
+    background-color: rgba(244,141,1,255);
+    border-color: rgba(244,141,1,255);
 }
 
-.text:hover {
-    color: red;
+    .OpprettService:hover {
+        background-color: rgba(224,121,1,255);
+        border-color: rgba(224,121,1,255);
+    }
+
+.SlettService {
+    background-color: red;
 }
+
+    .SlettService:hover {
+        background-color: darkred;
+    }

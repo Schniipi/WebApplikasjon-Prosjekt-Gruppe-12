@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models.Tables;
-using Dapper;
+using Microsoft.Extensions.Logging;
 using DapperMariaDBDemo;
 using System.Data;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using WebApplication1.Repositories;
+using WebApplication1.Tables;
+using Microsoft.AspNetCore.Authentication.Cookies;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 
@@ -18,45 +20,53 @@ namespace WebApplication1.Controllers.Login
 {
     public class LogInUserController : Controller
     {
-        private readonly BrukerTableModelRepository _repository;
+        private readonly BrukerTableRepository _repository;
 
-        public LogInUserController(BrukerTableModelRepository repository)
+        public LogInUserController(BrukerTableRepository repository)
         {
             _repository = repository;
         }
 
-        //Skjuler BrukerNavn og BrukerPassord fra 'Request Data' inne i 'Network' tabben
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(BrukerData bruker)
         {
 
-            IEnumerable<BrukerData> formDataList = _repository.GetAll();
+            IEnumerable<BrukerData> sjekkPassord = _repository.ComparePassword(bruker.BrukerNavn);
 
-            //Leser igjennom registrerte brukere i databasen
-            foreach (var data in formDataList)
-            {
-                //sammenligner bruker id der med inntastet id for å sende bruker videre eller ikke
-                if ((data.BrukerNavn == bruker.BrukerNavn) & (data.BrukerPassord == bruker.BrukerPassord)) {
-
-                    var claims = new List<Claim>
+            //Sjekker om passordet knyttet til brukeren, matcher passordet som blir gitt
+                foreach (var brukerLogin in sjekkPassord)
+                {
+                    if (brukerLogin.Passord == bruker.Passord)
                     {
-                        new Claim("BrukerNavn", data.BrukerNavn)
-                    };
 
-                    var claimsIdentity = new ClaimsIdentity(claims, "Login");
-                    var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-                    await HttpContext.SignInAsync(claimsPrincipal);
+                        //Oppretter en claim med brukeren sin verdi
+                        var claims = new List<Claim>
+                        {
+                            new Claim("BrukerNavn", bruker.BrukerNavn)
+                        };
 
-                    return View("/Views/Home/Hjemmeside.cshtml");
+                        //Lager en identitet til brukeren som bruker authenticationcookie som default authentication scheme
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                        //logger inn brukeren
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                        var brukerNavn = claimsPrincipal.FindFirst("BrukerNavn")?.Value;
+
+                        HttpContext.Session.SetString("BrukerNavn", brukerNavn);
+
+                        return View("/Views/Home/Hjemmeside.cshtml");
+
+                    }
+                
                 }
 
-            }
 
             return View();
-
-
         }
     }
 }
@@ -65,5 +75,10 @@ namespace WebApplication1.Controllers.Login
 
 //public async Task<IActionResult> Login(FormData model)
 /*
+                                        
 
+                    
+
+                    var claimsIdentity = new ClaimsIdentity(claims, "brukerSession1");
+                    var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 */
