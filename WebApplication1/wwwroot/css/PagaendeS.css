@@ -1,0 +1,88 @@
+﻿
+body {
+    background-image: url("/images/Vei.jpg");
+    background-size: cover;
+}
+
+
+.container {
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    color: #888;
+}
+
+.kort-container {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    overflow-x: auto;
+}
+
+.kort {
+    margin-right: 50px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px 500px auto;
+    grid-template-areas: "tittel" "text";
+    font-family: roboto;
+    border-radius: 18px;
+    background: #101820;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+    transition: 0.8s cubic-bezier(0.2,1,0.2,1);
+}
+
+.kort-tittel {
+    grid-area: tittel;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.tittel {
+    font-size: 1.5rem;
+    color: #f55e07;
+}
+
+.kort-text {
+    grid-area: text;
+    margin: 50px;
+    background-color: #FF6600;
+    border-radius: 20px;
+}
+
+    .kort-text .student {
+        color: grey;
+        font-size: small;
+    }
+
+    .kort-text .navn {
+        font-size: 1.5rem;
+        color: black;
+        letter-spacing: 0.1rem;
+    }
+
+    .kort-text .info {
+        font-size: 0.8rem;
+        color: black
+    }
+
+.kort:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 25px 35px 0 rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+.kort:active {
+    background-color: #17222e;
+}
+
+.kort-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-backdrop {
+    display: none !important;
+}

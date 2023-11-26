@@ -1,64 +1,39 @@
-﻿@{
+﻿@model WebApplication1.Tables.BrukerData
+
+@{
     ViewData["Title"] = "nøsted &";
 }
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+<script src="~/js/login.js" asp-append-version="true"></script>
+
+
+
+@{
+
+} 
+
 <h1>@ViewData["Title"]</h1>
+<p class="undertitle">Log in using your username and password</p>
 
-<div class="undertitle">
-    <p>Serviceportal</p>
-</div>
-
-<div style="text-align: center;">
-    <form id ="form_login">
-        <p style ="font-weight: bold;">Velkommen!</p>
-        <div class="form-group">
-            <label for="exampleUsername">Brukernavn</label>
-            <input type="text" class="form-control" id="exampleUsername" aria-describedby="usernameHelp" placeholder="Brukernavn">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Passord</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
-        </div>
-        <button type="submit" class="btn btn-primary">Fortsett</button>
+<!--Sender log in data til controller for å autentisere brukeren-->
+<div>
+    <form asp-controller="LoginUser" asp-action="Login" method="post">
+        <hr />
+        <label asp-for="BrukerNavn">Navn:  </label>
+        <input asp-for="BrukerNavn" type="text" />
+        <span asp-validation-for="BrukerNavn"></span>
+        <br />
+        <label asp-for="Passord">Passord:</label>
+        <input asp-for="Passord" type="text" />
+        <span asp-validation-for="Passord"></span>
+        <br />
+        <input type="submit" class="btn-primary" />
     </form>
 </div>
 
 
-<style>
-    .btn-primary {
-        margin-top: 10px;
-        background-color: rgba(244,141,1,255);
-        border-color: rgba(244,141,1,255);
-}
 
-    .btn-primary:hover {
-            background-color: rgba(224,121,1,255);
-            border-color: rgba(224,121,1,255);
-    }
 
-    form {
-        border: 1px solid black; /* Legg til ønsket grensestil her */
-        margin-top: 20px;
-        padding: 20px;
-        border-radius: 3%;
-        background-image: linear-gradient(to bottom, lightgrey, lightblue);
-        
-
-    }
-
-    h1 {
-        text-align: center;
-        color: rgba(113,133,143,255);
-        font-size: 4em;
-        font-family: Mensrea Light;
-    }
-
-    .undertitle {
-        text-align: center;
-        margin-top: -10px;
-        color: rgba(113,133,143,255);
-    }
-    
-    body{
-        background-image: linear-gradient(to bottom, rgba(16,24,32,255) 60%, lightgrey);
-    }
-</style>
+<!--id-->

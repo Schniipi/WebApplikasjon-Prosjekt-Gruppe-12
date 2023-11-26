@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Tables.KundeData;
+@{
+    ViewData["Title"] = "Service Form";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/NyKunde.css" asp-append-version="true" />
+
+<h1>Registrer ny kunde her</h1>
+
+<!--legg til en kunde her-->
+<form asp-controller="InsertData" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
+    <label asp-for="Fornavn"></label>
+    <br />
+    <input asp-for="Fornavn" type="text" /><br />
+    <label asp-for="Etternavn"></label>
+    <br />
+    <input asp-for="Etternavn" type="text" /><br />
+    <label asp-for="Bedrift"></label>
+    <br />
+    <input asp-for="Bedrift" type="text" /><br />
+    <label asp-for="TelefonNR"></label>
+    <br />
+    <input asp-for="TelefonNR" type="text" /><br />
+    <label asp-for="Adresse"></label>
+    <br />
+    <input asp-for="Adresse" type="text" /><br />
+    <br />
+    <input type="submit" />
+</form>
+
+<!--slett en kunde med tilsvarende id fra databasen-->
+
+<br />
+<hr />
+<h2>Slett kunde her</h2>
+<label asp-for="DeleteID">KundeID:</label>
+<form asp-controller="DeleteData" asp-action="Delete" method="post">
+    <input asp-for="DeleteID" type="number"/>
+</form>
+

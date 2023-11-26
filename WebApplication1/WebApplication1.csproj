@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -8,9 +8,73 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Compile Remove="Views\ServiceFormMappe\**" />
+    <Content Remove="Views\ServiceFormMappe\**" />
+    <EmbeddedResource Remove="Views\ServiceFormMappe\**" />
+    <None Remove="Views\ServiceFormMappe\**" />
+    <Compile Remove="MariaDBDapper.csproj" />
+    <None Remove="Repositories\BrukerDataTableRepository.cs" />
+    <Compile Remove="WebApplication.csproj" />
+    <None Remove="Models\Tables\" />
+    <None Remove="Filters\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="Dapper" Version="2.1.15" />
+    <PackageReference Include="MySqlConnector" Version="2.2.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Models\FormDataMappe\" />
+    <None Remove="Repositories\" />
+    <None Remove="Views\ServiceFormMappe\" />
+    <None Remove="Views\BrukerHandlinger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MariaDBDapper.csproj" />
+    <None Include="WebApplication.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Views\Home\cssStyle.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="Views\Home\cssStyle.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Home\GjennomfortService.cshtml.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+    <Compile Update="Repositories\IFormRepository.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Compile>
+    <Compile Update="Views\Home\Privacy.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+    <Compile Update="Repositories\ServiceDataTableRepository.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Models\Tables\ServiceTableModel.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="ServiceModel.cs" />
+    <Content Remove="brukerData\brukerDataForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Models\Tables\" />
+    <Folder Include="Filters\" />
+  </ItemGroup>
 </Project>

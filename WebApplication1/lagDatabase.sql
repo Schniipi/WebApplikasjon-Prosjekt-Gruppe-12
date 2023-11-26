@@ -1,0 +1,60 @@
+create database if not EXISTS NostedDB_12;
+use NostedDB_12;
+
+create table if not EXISTS Bruker
+(
+BrukerID INT AUTO_INCREMENT PRIMARY KEY,
+Rolle VARCHAR(20) NOT NULL,
+Brukernavn VARCHAR(20) NOT NULL,
+Passord VARCHAR(255) NOT NULL
+);
+
+create table if not EXISTS Kunde
+(
+KundeID INT AUTO_INCREMENT PRIMARY KEY,
+Fornavn VARCHAR(25) NOT NULL,
+Etternavn VARCHAR(25) NOT NULL,
+Bedrift VARCHAR(30) NOT NULL,
+TelefonNR VARCHAR(20) NOT NULL,
+Adresse VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE if not EXISTS Service
+(
+ServiceID INT AUTO_INCREMENT PRIMARY KEY,
+KundeID INT NOT NULL,
+FOREIGN KEY (KundeID) REFERENCES KUNDE(KundeID),
+ServiceBeskrivelse VARCHAR(450) NOT NULL,
+ServiceGjennomFortTid DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE if not EXISTS ServiceSkjema
+(
+ServiceID INT AUTO_INCREMENT PRIMARY KEY,
+FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID),
+DatoSistEndret DATETIME DEFAULT CURRENT_TIMESTAMP,
+ServiceStatus VARCHAR(30) NOT NULL,
+ServiceKommentar VARCHAR(300) NOT NULL
+);
+
+CREATE TABLE if not EXISTS ServiceData
+(
+ServiceDataID INT AUTO_INCREMENT PRIMARY KEY,
+ServiceID INT,
+FOREIGN KEY (ServiceID) REFERENCES ServiceSkjema(ServiceID),
+Sjekkpunkter VARCHAR(100) NOT NULL,
+SjekkpunktType VARCHAR(50) NOT NULL,
+SjekkpunktSvar VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE if not EXISTS ServiceOgBruker
+(
+BrukerID INT,
+ServiceID INT,
+PRIMARY KEY(BrukerID, ServiceID),
+FOREIGN KEY (BrukerID) REFERENCES Bruker(BrukerID),
+FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID)
+);
+
+INSERT INTO Bruker (Rolle, Brukernavn, Passord) VALUES ("Admin", "ABC", "AQAAAAIAAYagAAAAEOLYh+7jbiqWsyi8baPDB8K04lJDBvqsn3YFWhoOToNJuZufB0C/oVf7jNiDhsIGlw==");

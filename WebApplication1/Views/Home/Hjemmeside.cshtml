@@ -1,0 +1,33 @@
+﻿@{ 
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/hjemmeside.css" asp-append-version="true" />
+
+<!--container for alle bildene med tekst i midten-->
+<div class="images">
+
+    <div class="image-container">
+        <img class="workshop-image" src="/images/Kjetting.jpg" />
+        <form asp-controller="BringData" asp-action="ShowData" method="get">
+            <button type="submit" class="textVisual kommende-service">Kommende service</button>
+        </form>
+    </div>
+
+    <div class="image-container">
+        <img class="workshop-image" src="/images/Verksted.jpg" />
+        <form asp-controller="BringData" asp-action="ShowCards" method="get">
+            <button type="submit" class="textVisual">Pågående service</button>
+        </form>
+    </div>
+
+        <div class="image-container">
+            <img class="workshop-image" src="/images/Vei.jpg" />
+            <a asp-controller="BringData" asp-action="ShowForm" method="get">
+                <p class="textVisual">Gjennomført service</p>
+            </a>
+     </div>
+
+ </div>
+

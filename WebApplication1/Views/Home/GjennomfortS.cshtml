@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebApplication1.Tables.ServiceForm>
+
+@{
+    var a = 0;
+}
+
+<!--Skriver ut serviceskjemadata. Ikke ferdig implementert, kan maks hente ut 24 tegn om gangen, Så kan bare takle et skjema om gangen.
+    Hvis ikke hele skjemaet fylles ut heller, vil dette også skape problemer.-->
+@foreach (var data in Model)
+{
+    for (int i = 0; i < 20; i+=3)
+    {
+        <p>
+            <!--printer alt tegn for tegn-->
+            Forkortet Tittel: @data.Sjekkpunkter[i]@data.Sjekkpunkter[i + 1]@data.Sjekkpunkter[i + 2]&nbsp;&nbsp;&nbsp;&nbsp;
+            Avdeling: @data.SjekkpunktType[a]&nbsp;&nbsp;&nbsp;&nbsp;
+            Svaralternativ: @data.SjekkpunktSvar[a]&nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+         
+        {
+          a += 1;
+        }
+
+    }
+}

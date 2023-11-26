@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Tables.ServiceData>
+
+@{
+    ViewData["Title"] = "PagaendeS";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/PagaendeS.css" asp-append-version="true" />
+
+<div class="kort-container">
+
+    @foreach (var bruker in Model)
+    {
+
+        <div class="kort-wrapper">
+            <div class="kort">
+                <div class="kort-tittel">
+                    <p class="tittel">Kunde: @bruker.KundeID</p>
+                </div>
+                <div class="kort-text">
+                    <h2 class="navn">@bruker.ServiceBeskrivelse</h2>
+                    <p class="info">@bruker.ServiceGjennomFortTid</p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="~/js/PagaendeS.js" asp-append-version="true"></script>
+
