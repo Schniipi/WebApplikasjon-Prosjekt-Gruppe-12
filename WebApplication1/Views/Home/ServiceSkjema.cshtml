@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model WebApplication1.Tables.ServiceSkjema
+
+<!--Skriv en kommentar for det opprettet serviceskjemaet-->
+<p>Skriv en kommentar her</p>
+<form asp-controller="InsertData" asp-action="SaveSkjema">
+    <label asp-for="ServiceKommentar"></label>
+    <br />
+    <textarea asp-for="ServiceKommentar" type=""></textarea>
+    <br />
+    <br />
+    <input type="submit" />
+</form>

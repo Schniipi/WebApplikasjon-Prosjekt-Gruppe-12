@@ -14,7 +14,7 @@
     }
 
 form {
-    border: 1px solid black; /* Legg til ønsket grensestil her */
+    border: 1px solid black; 
     margin-top: 20px;
     padding: 20px;
     border-radius: 3%;

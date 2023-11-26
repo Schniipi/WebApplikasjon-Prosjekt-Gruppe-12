@@ -1,15 +1,12 @@
-﻿/*
-function logIn() {
-    var pass = document.getElementById("passwordID").value;
-    var usr = document.getElementById("userID").value;
+﻿src = "https://code.jquery.com/jquery-3.6.0.min.js" >
+    $(document).ready(function () {
+        $('.OpprettService').on('click', function () {
+            var buttonId = $(this).attr('id');
 
-    if (usr === "Admin" & pass === "123") {
-        window.location = "/Home/Hjemmeside";
-    } else {
-        var errorMsg = document.getElementById("feilBrPsord").innerHTML = "Ugyldig brukernavn/passord";
-        var inlogget = document.getElementById("inlogget").innerHTML = usr;
-
-    }
-}
-
-*/
+            //Henter rollen til brukeren som logger inn
+            var Rolle = buttonId.split('_')[1];
+            var url = "/InsertData/SaveService?Rolle=" + Rolle;
+            //Sender id til controlleren, som fortsetter som vanlig
+            window.location.href = url;
+        });
+    });

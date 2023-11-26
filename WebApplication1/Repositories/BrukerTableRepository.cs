@@ -8,6 +8,8 @@ using NuGet.Protocol.Plugins;
 using Dapper;
 using MySqlConnector;
 using WebApplication1.Tables;
+using Microsoft.AspNetCore.Identity;
+using System.Collections;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,28 +32,47 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public IEnumerable<BrukerData> GetAll()
+        //Henter brukeren sin Rolle fra databasen
+        public bool GetRole(string sjekkRolle)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<BrukerData>("SELECT * FROM Bruker");
+                string query = "SELECT Rolle FROM Bruker where BrukerNavn = @BrukerNavn";
+
+                //Henter rollen til mottatt brukernavn
+                string rolle = dbConnection.QueryFirstOrDefault<string>(query, new { BrukerNavn = sjekkRolle });
+
+                //Sjekker om brukeren er Admin
+                return rolle == "Admin";
             }
         }
-
+       
+        //Tar i bruk brukernavn fra innlogging for å hente fram passordet knyttet opp mot navnet
         public IEnumerable<BrukerData> ComparePassword(string sjekkNavn)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 string query = "SELECT Passord FROM Bruker WHERE BrukerNavn = @BrukerNavn";
-                //string query1 = "SELECT Passord FROM Bruker WHERE Passord = @Passord";
-
                 dbConnection.Open();
-                return dbConnection.Query<BrukerData>(query, new { BrukerNavn = sjekkNavn });
 
-                //var pet1 = dbConnection.Query<BrukerData>(query1, new { Passord = sjekkPassord });
+                return dbConnection.Query<BrukerData>(query, new { BrukerNavn = sjekkNavn });
+                
+
 
       
+            }
+        }
+
+        public void LeggTilBruker(BrukerData bruker)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                var passwordHasher = new PasswordHasher<BrukerData>();
+                string hashedPassword = passwordHasher.HashPassword(bruker, bruker.Passord);
+
+                dbConnection.Open();
+                dbConnection.Execute("INSERT INTO Bruker (Rolle, BrukerNavn, Passord) VALUES(@Rolle, @BrukerNavn, @Passord)", new {Rolle = bruker.Rolle, BrukerNavn = bruker.BrukerNavn, Passord = hashedPassword});
             }
         }
     }

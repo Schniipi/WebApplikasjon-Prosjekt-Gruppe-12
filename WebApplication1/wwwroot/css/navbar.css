@@ -1,5 +1,4 @@
-﻿
-.hide {
+﻿.hide {
     display: none;
 }
 
@@ -31,6 +30,6 @@
     display: none;
 }
 
-.logout-box.show {
+    .logout-box.show {
         display: block; /* Display the box when this class is added */
- }
+    }

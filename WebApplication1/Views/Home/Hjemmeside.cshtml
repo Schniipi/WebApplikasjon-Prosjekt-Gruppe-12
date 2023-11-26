@@ -10,21 +10,21 @@
 
     <div class="image-container">
         <img class="workshop-image" src="/images/Kjetting.jpg" />
-        <form asp-controller="BringData" asp-action="ShowData" method="post">
+        <form asp-controller="BringData" asp-action="ShowData" method="get">
             <button type="submit" class="textVisual kommende-service">Kommende service</button>
         </form>
     </div>
 
     <div class="image-container">
         <img class="workshop-image" src="/images/Verksted.jpg" />
-        <form asp-controller="BringData" asp-action="ShowCards" method="post">
+        <form asp-controller="BringData" asp-action="ShowCards" method="get">
             <button type="submit" class="textVisual">Pågående service</button>
         </form>
     </div>
 
         <div class="image-container">
             <img class="workshop-image" src="/images/Vei.jpg" />
-            <a asp-controller="DefaultVerdier" asp-action="GjennomførtS" method="post">
+            <a asp-controller="BringData" asp-action="ShowForm" method="get">
                 <p class="textVisual">Gjennomført service</p>
             </a>
      </div>

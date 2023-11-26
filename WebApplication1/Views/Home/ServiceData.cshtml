@@ -1,0 +1,109 @@
+﻿@using WebApplication1.Controllers;
+@using System.Collections.Generic;
+
+@model WebApplication1.Tables.ServiceForm
+@{
+    var KundeIDString = ViewData["kundeID"] as string;
+}
+
+<!--ServiceSkjemaet. Er desverre ikke helt ferdig, og krever 'ServiceID' input fra brukeren.
+    Rakk ikke å implementere det ordentlig-->
+<form asp-controller="InsertData" asp-action="SaveServiceData" method="post">
+    @Html.AntiForgeryToken()
+    <div class="ramme">
+        <p>tast inn hvilken serviceID dette gjelder for</p>
+        <input type="number" name="ServiceID" />
+        <p class="text">Service Skjema</p>
+        <table class="table table-striped bg-white">
+            <thead>
+                <tr>
+                    <th scope="col">Avdeling</th>
+                    <th scope="col">Sjekkpunkter</th>
+                    <th scope="col">Ok</th>
+                    <th scope="col">Bør skiftes</th>
+                    <th scope="col">Defekt</th>
+                </tr>
+            </thead>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper1" value="M" />
+                <input type="hidden" name="Sjekkpunkter1" value="Clu" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk clutch lammeler for slitasje</td>
+                <td><input type="radio" name="SjekkpunktSvar1" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar1" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar1" value="3"></td>
+
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper2" value="M" />
+                <input type="hidden" name="Sjekkpunkter2" value="Bre" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk bremser. Bånd/Pal</td>
+                <td><input type="radio" name="SjekkpunktSvar2" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar2" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar2" value="3"></td>
+            </tr>
+
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper3" value="M" />
+                <input type="hidden" name="Sjekkpunkter3" value="Tro" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk lager for trommel</td>
+                <td><input type="radio" name="SjekkpunktSvar3" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar3" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar3" value="3"></td>
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper4" value="M" />
+                <input type="hidden" name="Sjekkpunkter4" value="PTO" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk PTO og opplagring</td>
+                <td><input type="radio" name="SjekkpunktSvar4" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar4" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar4" value="3"></td>
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper5" value="M" />
+                <input type="hidden" name="Sjekkpunkter5" value="Kje" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk kjedestrammer</td>
+                <td><input type="radio" name="SjekkpunktSvar5" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar5" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar5" value="3"></td>
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper6" value="M" />
+                <input type="hidden" name="Sjekkpunkter6" value="Wir" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk wire</td>
+                <td><input type="radio" name="SjekkpunktSvar6" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar6" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar6" value="3"></td>
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper7" value="M" />
+                <input type="hidden" name="Sjekkpunkter7" value="Pin" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk pinion lager</td>
+                <td><input type="radio" name="SjekkpunktSvar7" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar7" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar7" value="3"></td>
+            </tr>
+            <tr>
+                <input type="hidden" name="SjekkpunktTyper8" value="M" />
+                <input type="hidden" name="Sjekkpunkter8" value="Kil" />
+                <th scope="row">Mekanisk</th>
+                <td>Sjekk kile på kjedehjul</td>
+                <td><input type="radio" name="SjekkpunktSvar8" value="1"></td>
+                <td><input type="radio" name="SjekkpunktSvar8" value="2"></td>
+                <td><input type="radio" name="SjekkpunktSvar8" value="3"></td>
+            </tr>
+        </table>
+    </div>
+
+    <input type="submit" />
+</form>
+
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/gjennomførts.css" asp-append-version="true" />

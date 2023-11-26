@@ -1,98 +1,25 @@
-﻿@using WebApplication1.Controllers.ApiController;
-@using System.Collections.Generic;
-
-@model WebApplication1.Tables.ServiceData
-
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/css/gjennomførts.css" asp-append-version="true" />
+﻿@model IEnumerable<WebApplication1.Tables.ServiceForm>
 
 @{
-
-    //int kundeID = ViewData["KundeID"] as int? ?? default(int);
-
-    var KundeIDString = ViewData["kundeID"] as string;
-
-
-
+    var a = 0;
 }
 
-<p>Data fra databasen skal bli vist her @KundeIDString aaa</p>
+<!--Skriver ut serviceskjemadata. Ikke ferdig implementert, kan maks hente ut 24 tegn om gangen, Så kan bare takle et skjema om gangen.
+    Hvis ikke hele skjemaet fylles ut heller, vil dette også skape problemer.-->
+@foreach (var data in Model)
+{
+    for (int i = 0; i < 20; i+=3)
+    {
+        <p>
+            <!--printer alt tegn for tegn-->
+            Forkortet Tittel: @data.Sjekkpunkter[i]@data.Sjekkpunkter[i + 1]@data.Sjekkpunkter[i + 2]&nbsp;&nbsp;&nbsp;&nbsp;
+            Avdeling: @data.SjekkpunktType[a]&nbsp;&nbsp;&nbsp;&nbsp;
+            Svaralternativ: @data.SjekkpunktSvar[a]&nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+         
+        {
+          a += 1;
+        }
 
-<form asp-action="Hjemmeside" asp-controller="Home" method="post">
-    @Html.AntiForgeryToken()
-    <div class="ramme">
-        <p class="text">Service Skjema</p>
-        <table class="table table-striped bg-white">
-            <thead>
-                <tr>
-                    <th scope="col">Avdeling</th>
-                    <th scope="col">Sjekkpunkter</th>
-                    <th scope="col">Ok</th>
-                    <th scope="col">Bør skiftes</th>
-                    <th scope="col">Defekt</th>
-                </tr>
-            </thead>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk clutch lammeler for slitasje</td>
-                <td><input type="radio" name="status-1-1" value="Ok"></td>
-                <td><input type="radio" name="status-1-1" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-1" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk bremser. Bånd/Pal</td>
-                <td><input type="radio" name="status-1-2" value="Ok"></td>
-                <td><input type="radio" name="status-1-2" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-2" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk lager for trommel</td>
-                <td><input type="radio" name="status-1-3" value="Ok"></td>
-                <td><input type="radio" name="status-1-3" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-3" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk PTO og opplagring</td>
-                <td><input type="radio" name="status-1-4" value="Ok"></td>
-                <td><input type="radio" name="status-1-4" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-4" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk kjedestrammer</td>
-                <td><input type="radio" name="status-1-5" value="Ok"></td>
-                <td><input type="radio" name="status-1-5" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-5" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk wire</td>
-                <td><input type="radio" name="status-1-6" value="Ok"></td>
-                <td><input type="radio" name="status-1-6" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-6" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk pinion lager</td>
-                <td><input type="radio" name="status-1-7" value="Ok"></td>
-                <td><input type="radio" name="status-1-7" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-7" value="Defekt"></td>
-            </tr>
-            <tr>
-                <th scope="row">Mekanisk</th>
-                <td>Sjekk kile på kjedehjul</td>
-                <td><input type="radio" name="status-1-8" value="Ok"></td>
-                <td><input type="radio" name="status-1-8" value="Bør skiftes"></td>
-                <td><input type="radio" name="status-1-8" value="Defekt"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="save-buttons">
-        <button type="submit" class="btn btn-dark">Lagre og ferdiggjør senere</button>
-        <button type="button" class="btn btn-dark">Ferdiggjør ordre</button>
-
-    </div>
-</form>
+    }
+}

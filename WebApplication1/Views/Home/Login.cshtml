@@ -1,5 +1,4 @@
-﻿@using WebApplication1.Tables;
-@model BrukerData
+﻿@model WebApplication1.Tables.BrukerData
 
 @{
     ViewData["Title"] = "nøsted &";
@@ -9,22 +8,32 @@
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 <script src="~/js/login.js" asp-append-version="true"></script>
 
-<h1>@ViewData["Title"]</h1>
 
+
+@{
+
+} 
+
+<h1>@ViewData["Title"]</h1>
 <p class="undertitle">Log in using your username and password</p>
 
+<!--Sender log in data til controller for å autentisere brukeren-->
+<div>
+    <form asp-controller="LoginUser" asp-action="Login" method="post">
+        <hr />
+        <label asp-for="BrukerNavn">Navn:  </label>
+        <input asp-for="BrukerNavn" type="text" />
+        <span asp-validation-for="BrukerNavn"></span>
+        <br />
+        <label asp-for="Passord">Passord:</label>
+        <input asp-for="Passord" type="text" />
+        <span asp-validation-for="Passord"></span>
+        <br />
+        <input type="submit" class="btn-primary" />
+    </form>
+</div>
 
-<form asp-controller="LoginUser" asp-action="Login" method="post">
-    <hr />
-    <label asp-for="BrukerNavn">Navn:  </label>
-    <input asp-for="BrukerNavn" type="text" />
-    <span asp-validation-for="BrukerNavn"></span>
-    <br />
-    <label asp-for="Passord">Passord:</label>
-    <input asp-for="Passord" type="text" />
-    <span asp-validation-for="Passord"></span>
-    <br />
-    <input type="submit" class="btn-primary" />
-</form>
+
+
 
 <!--id-->

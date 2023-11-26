@@ -52,7 +52,7 @@ namespace WebApplication1.Repositories
             {
 
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO Service (KundeID, ServiceDeleted, ServiceBeskrivelse) VALUES (@KundeID, @ServiceDeleted, @ServiceBeskrivelse)", Service);
+                dbConnection.Execute("INSERT INTO Service (KundeID, ServiceBeskrivelse) VALUES (@KundeID, @ServiceBeskrivelse)", Service);
             }
         }
     }

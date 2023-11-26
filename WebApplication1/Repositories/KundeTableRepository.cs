@@ -54,6 +54,9 @@ namespace WebApplication1.Repositories
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
+                dbConnection.Execute("DELETE FROM ServiceData WHERE ServiceID = @deleteID", kunde);
+                dbConnection.Execute("DELETE FROM ServiceSkjema WHERE ServiceID = @deleteID", kunde);
+                dbConnection.Execute("DELETE FROM Service WHERE KundeID = @deleteID", kunde);
                 dbConnection.Execute("DELETE FROM Kunde WHERE KundeID = @deleteID", kunde);
             }
         }

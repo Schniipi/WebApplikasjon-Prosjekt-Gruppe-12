@@ -18,13 +18,9 @@
     <form asp-controller="InsertData" asp-action="SaveService" method="post">
         <input type="hidden" name="KundeID" value="@KundeIDString" />
 
-        <label asp-for="ServiceDeleted"></label>
-        <br />
-        <input asp-for="ServiceDeleted" type="number" />
-        <br />
         <label asp-for="ServiceBeskrivelse"></label>
         <br />
-        <input asp-for="ServiceBeskrivelse" type="text" />
+        <textarea asp-for="ServiceBeskrivelse" type="text"> </textarea>
         <br />
         <input type="submit" />
     </form>

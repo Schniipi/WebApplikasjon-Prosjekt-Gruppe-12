@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication1.Models;
 
@@ -34,6 +35,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [Authorize(Policy = "UserOnly")]
         public IActionResult NyKunde() 
         {
             return View();
@@ -48,10 +50,26 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult PågåendeS() 
+        public IActionResult PagaendeS() 
         {
             return View();
         }
+
+        public IActionResult RegistrerBruker()
+        {
+            return View();
+        }
+
+        public IActionResult ServiceSkjema()
+        {
+            return View();
+        }
+
+        public IActionResult ServiceData()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -8,7 +8,7 @@
 
 <h1>Registrer ny kunde her</h1>
 
-<!--enctype="application/x-www-form-urlencoded"-->
+<!--legg til en kunde her-->
 <form asp-controller="InsertData" asp-action="Save" method="post" enctype="application/x-www-form-urlencoded">
     <label asp-for="Fornavn"></label>
     <br />
@@ -25,12 +25,14 @@
     <label asp-for="Adresse"></label>
     <br />
     <input asp-for="Adresse" type="text" /><br />
+    <br />
     <input type="submit" />
 </form>
 
 <!--slett en kunde med tilsvarende id fra databasen-->
 
 <br />
+<hr />
 <h2>Slett kunde her</h2>
 <label asp-for="DeleteID">KundeID:</label>
 <form asp-controller="DeleteData" asp-action="Delete" method="post">

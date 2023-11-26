@@ -13,10 +13,13 @@ using Microsoft.AspNetCore.Authentication;
 using WebApplication1.Repositories;
 using WebApplication1.Tables;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using  Newtonsoft.Json;
+using System.Diagnostics;
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 
-namespace WebApplication1.Controllers.Login
+namespace WebApplication1.Controllers
 {
     public class LogInUserController : Controller
     {
@@ -33,21 +36,28 @@ namespace WebApplication1.Controllers.Login
         public async Task<IActionResult> Login(BrukerData bruker)
         {
 
+            bool isAdmin = _repository.GetRole(bruker.BrukerNavn);
             IEnumerable<BrukerData> sjekkPassord = _repository.ComparePassword(bruker.BrukerNavn);
 
+
             //Sjekker om passordet knyttet til brukeren, matcher passordet som blir gitt
-                foreach (var brukerLogin in sjekkPassord)
+            foreach (var brukerLogin in sjekkPassord)
+            {
+                var deHashPassword = new PasswordHasher<BrukerData>();
+
+                var passwordHash = deHashPassword.VerifyHashedPassword(brukerLogin, brukerLogin.Passord, bruker.Passord);
+
+
+                if (passwordHash == PasswordVerificationResult.Success)
                 {
-                    if (brukerLogin.Passord == bruker.Passord)
+
+                    //Sjekker om bruker er rolle "Admin"
+                    if (isAdmin)
                     {
-
-
-                        //Oppretter en claim med brukeren sin verdi
                         var claims = new List<Claim>
                         {
                             new Claim("BrukerNavn", bruker.BrukerNavn)
                         };
-
                         //Lager en identitet til brukeren som bruker authenticationcookie som default authentication scheme
                         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
@@ -62,9 +72,36 @@ namespace WebApplication1.Controllers.Login
                         return View("/Views/Home/Hjemmeside.cshtml");
 
                     }
-                
+
+                    else
+                    {
+                        //Utfører samme kode som istad, bare at dersom brukeren er en mekaniker, får de ikke claimet som gir adminroller
+                        var claims = new List<Claim>
+                        {
+                            new Claim("ikkeAdmin", bruker.BrukerNavn)
+                        };
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                        var brukerNavn = claimsPrincipal.FindFirst("ikkeAdmin")?.Value;
+
+                        HttpContext.Session.SetString("ikkeAdmin", brukerNavn);
+
+                        return View("/Views/Home/Hjemmeside.cshtml");
+
+                    }
                 }
 
+                else if (passwordHash == PasswordVerificationResult.Failed)
+                {
+
+                    var a = TempData["HEI DER"];
+                    return View("/Views/Home/Login.cshtml");
+                }
+
+            }
 
             return View();
         }
@@ -73,12 +110,3 @@ namespace WebApplication1.Controllers.Login
 
 
 
-//public async Task<IActionResult> Login(FormData model)
-/*
-                                        
-
-                    
-
-                    var claimsIdentity = new ClaimsIdentity(claims, "brukerSession1");
-                    var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-*/

@@ -17,7 +17,7 @@
             @foreach (var kunder in Model)
                 {
                 <tr>
-                    <form asp-controller="BringData" asp-action="OpprettService" method="post">
+                    <form asp-controller="BringData" asp-action="OpprettService" method="get">
 
                     <td class="table">kundeID: @kunder.KundeID</td>
                     <td class="table">Fornavn: @kunder.Fornavn</td>
@@ -26,7 +26,7 @@
                     <td class="table">Telefonnummer: @kunder.TelefonNR  </td>
                     <td class="table">Adresse: @kunder.Adresse  </td>
 
-                    <!--Har en ID som øker med +1 for hvert nytt table som generes for å skille "Submit" knappene-->
+                    <!--Har en ID som er lik kunden sin id som sendes som ViewData-->
                     <td>
                         <button  id="btn_@(kunder.KundeID)" class="OpprettService" type="button">Start service</button>
                     </td>

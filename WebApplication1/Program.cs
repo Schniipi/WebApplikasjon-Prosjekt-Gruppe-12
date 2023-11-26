@@ -25,12 +25,6 @@ namespace DapperMariaDBDemo
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                    .ConfigureLogging((hostingContext, logging) =>
-                    {
-                        logging.ClearProviders(); // Remove any existing logging providers
-                        logging.AddConsole(); // Add console logging
-                    })
- 
 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
@@ -48,24 +42,30 @@ namespace DapperMariaDBDemo
                         services.AddTransient<KundeTableRepository>();
                         services.AddTransient<BrukerTableRepository>();
                         services.AddTransient<ServiceTableRepository>();
+                        services.AddTransient<ServiceFormTableRepository>();
+                        services.AddTransient<ServiceSkjemaTableRepository>();
 
                         services.AddSession();
                         //{
                         //    options.IdleTimeout = TimeSpan.FromMinutes(30);
                         //});
 
+
+
+                        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                            .AddCookie(options =>
+                            {
+                                options.Cookie.Name = "Innlogget";
+                                options.LoginPath = "/Home/Login";
+                                options.AccessDeniedPath = "/Home/Login";
+                                options.LogoutPath = "";
+                            });
+
                         services.AddAuthorization(options =>
                         {
                             options.AddPolicy("UserOnly", policy => policy.RequireClaim("BrukerNavn"));
 
                         });
-
-                        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                            .AddCookie(options =>
-                            {
-                                options.Cookie.Name = "Innlogget"; // Replace with your cookie name
-                                options.LoginPath = "/Home/Login"; // Set the login path
-                            });
 
 
 
@@ -93,9 +93,10 @@ namespace DapperMariaDBDemo
                         appBuilder.UseRouting();
 
                         appBuilder.UseSession();
+
                         appBuilder.UseAuthentication();
                         appBuilder.UseAuthorization();
-
+                        
                         appBuilder.UseHttpLogging();
 
                         appBuilder.UseEndpoints(endpoints =>

@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Tables.BrukerData
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/RegistrerBruker.css" asp-append-version="true" />
+
+<!--Opprett en bruker her-->
+<form asp-controller="InsertData" asp-action="AddUser" method="post">
+    <br />
+    <label asp-for="BrukerNavn">Navn:</label>
+    <br />
+    <input asp-for="BrukerNavn" type="text" />
+    <span asp-validation-for="BrukerNavn"></span>
+    <br />
+
+    <label asp-for="Passord">Passord:</label>
+    <br />
+    <input asp-for="Passord" type="text" />
+    <span asp-validation-for="Passord"></span>
+    <br />
+
+    <label asp-for="Rolle">Velg rolle:</label>
+    <br />
+    <select asp-for="Rolle" id="=RolleValg">
+        <option value="Admin">Admin</option>
+        <option value="Mekaniker">Mekaniker</option>
+    </select>
+    <br />
+
+    <br />
+    <input type="submit" class="btn-primary" />
+</form>

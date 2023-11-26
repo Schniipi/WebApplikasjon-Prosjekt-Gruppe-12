@@ -1,5 +1,5 @@
 ﻿
-@using WebApplication1.Controllers.Login;
+@using WebApplication1.Controllers;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/layout.js" asp-append-version="true"></script>
@@ -20,7 +21,7 @@
 
     <!--Navigeringsbaren sine visuelle elementer-->
     <header>
-        @if (!(Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Equals("/Home/login", StringComparison.OrdinalIgnoreCase)))
+        @if (!(Context.Request.Path.Equals("/", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Equals("/Home/login", StringComparison.OrdinalIgnoreCase) ))
         {
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark custom-navbar border-bottom box-shadow mb-3">
                 <div class="container-fluid">
@@ -36,6 +37,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="NyKunde">Ny Kunde</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Home" asp-action="RegistrerBruker">Registrer bruker</a>
                             </li>
 
                         </ul>
@@ -57,7 +61,7 @@
             &copy; 2023 - Nøsted & - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-   
+
     @await RenderSectionAsync("Scripts", required: false)
 
 
