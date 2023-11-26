@@ -2,7 +2,7 @@
 
 Beskrivelse av Prosjektet:
 
-Har laget et script for å laste ned databasen øyeblikkelig. Scriptet ligger inne i prosjektmappen og heter
+Har laget et script for å laste ned databasen øyeblikkelig. Scriptet ligger inne i prosjektmappen og heter "lagDatabase.sql"
 
 Databasen kommer med en ferdig laget bruker med Adminrettigheter, som har et kryptert passord
       Brukernavn: ABC
