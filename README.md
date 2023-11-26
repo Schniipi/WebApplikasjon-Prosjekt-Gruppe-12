@@ -4,6 +4,8 @@ Beskrivelse av Prosjektet:
 
 Har laget et script for å laste ned databasen øyeblikkelig. Scriptet ligger inne i prosjektmappen og heter "lagDatabase.sql"
 
+Er masse bugs på siden. Lage databasen på nytt om errorer dukker opp
+
 Databasen kommer med en ferdig laget bruker med Adminrettigheter, som har et kryptert passord
 
 - Brukernavn: ABC
