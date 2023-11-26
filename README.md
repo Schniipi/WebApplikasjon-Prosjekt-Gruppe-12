@@ -5,8 +5,8 @@ Beskrivelse av Prosjektet:
 Har laget et script for å laste ned databasen øyeblikkelig. Scriptet ligger inne i prosjektmappen og heter "lagDatabase.sql"
 
 Databasen kommer med en ferdig laget bruker med Adminrettigheter, som har et kryptert passord
-      Brukernavn: ABC
-      Passord: A
+      - Brukernavn: ABC
+      - Passord: A
 
 Inne på "Ny kunde" siden kan man opprette en kunde, eller slette en eksisterende kunde.
       - For å komme inn på denne siden, må man bruke en autorisert bruker som har "Admin" rollen
